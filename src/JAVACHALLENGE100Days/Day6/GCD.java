@@ -1,4 +1,5 @@
 package JAVACHALLENGE100Days.Day6;
+//GCD Problem
 
 import java.util.Scanner;
 
