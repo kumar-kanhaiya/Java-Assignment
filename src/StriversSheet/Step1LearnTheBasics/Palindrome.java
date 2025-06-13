@@ -11,6 +11,9 @@ public class Palindrome {
 
     }
     public static boolean isPalindrome(int number){
+        if(number < 0){
+            return false;
+        }
         int real = number;
         int reverse = 0;
         while(number != 0){
