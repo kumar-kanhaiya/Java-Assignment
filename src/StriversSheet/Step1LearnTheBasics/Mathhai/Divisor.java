@@ -1,4 +1,4 @@
-package StriversSheet.Step1LearnTheBasics;
+package StriversSheet.Step1LearnTheBasics.Mathhai;
 
 import java.util.Scanner;
 
