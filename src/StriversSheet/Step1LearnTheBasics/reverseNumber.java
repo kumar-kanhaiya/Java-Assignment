@@ -15,7 +15,9 @@ public class reverseNumber {
         int reverse = 0;
         while(number != 0){
             int rem = number%10;
-            if(reverse > Integer.MAX_VALUE || reverse)
+            if(reverse > Integer.MAX_VALUE/10 || reverse < Integer.MIN_VALUE/10){
+                return 0;
+            }
             reverse = reverse*10 + rem;
             number /=10;
         }
