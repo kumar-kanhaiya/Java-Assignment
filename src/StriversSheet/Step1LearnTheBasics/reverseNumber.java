@@ -12,13 +12,10 @@ public class reverseNumber {
     }
     public static int reverse(int number){
 
-        if(number <0){
-            number = -number;
-            return -reverse(number);
-        }
         int reverse = 0;
-        while(number>0){
+        while(number != 0){
             int rem = number%10;
+            if(reverse > Integer.MAX_VALUE || reverse)
             reverse = reverse*10 + rem;
             number /=10;
         }
