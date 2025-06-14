@@ -3,7 +3,7 @@ package JAVACHALLENGE100Days.Day8;
 public class Problem_2 {
     public static void main(String[] args) {
         int[][] array = {{1,9,3},{4,5,6}};
-        sout
+        System.out.println(largestElement(array));
 
     }
     public static int largestElement(int[][] array ){
