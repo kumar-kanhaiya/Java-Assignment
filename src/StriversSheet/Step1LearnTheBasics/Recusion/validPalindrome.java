@@ -66,7 +66,7 @@ public class validPalindrome {
         String rev = "";
         for (int i = 0; i < input.length() ; i++) {
             int index = (int) input.charAt(i);
-            if(index <97 || index > 122){
+            if(index <97 || index > 122 && input.charAt(i) != ){
                 continue;
             }
             rev = rev + input.charAt(i);
