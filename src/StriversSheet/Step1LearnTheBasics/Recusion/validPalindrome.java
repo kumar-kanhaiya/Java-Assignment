@@ -1,5 +1,5 @@
 package StriversSheet.Step1LearnTheBasics.Recusion;
-// leetcode 125 - vallid palindrome
+// leetcode 125 - vallid palindrome .
 public class validPalindrome {
     public static void main(String[] args) {
         String name = "A man, a plan, a canal: Panama";
@@ -65,11 +65,11 @@ public class validPalindrome {
         input  = input.toLowerCase();
         String rev = "";
         for (int i = 0; i < input.length() ; i++) {
-            int index = (int) input.charAt(i);
-            if(index <97 || index > 122 && input.charAt(i) != ){
-                continue;
+            char index =  input.charAt(i);
+            if(Character.isLetterOrDigit(index)){
+                rev += index;
             }
-            rev = rev + input.charAt(i);
+
 
         }
         return rev;
