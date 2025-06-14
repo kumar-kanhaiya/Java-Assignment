@@ -3,7 +3,8 @@ package StriversSheet.Step1LearnTheBasics.Recusion;
 public class validPalindrome {
     public static void main(String[] args) {
         String name = "A man, a plan, a canal: Panama";
-        System.out.println(isPalindrome(name));
+
+//        System.out.println(isPalindrome(name));
 
     }
     public static boolean isPalindrome(String input){
