@@ -3,7 +3,7 @@ package StriversSheet.Step1LearnTheBasics.Recusion;
 public class validPalindrome {
     public static void main(String[] args) {
         String name = "A man, a plan, a canal: Panama";
-        System.out.println(removeSpaces(name));
+        System.out.println(isPalindrome(name));
 
 //        System.out.println(isPalindrome(name));
 
@@ -41,6 +41,26 @@ public class validPalindrome {
 //        }
 //        return rev;
 //    }
+    public static boolean isPalindrome(String input ){
+        String first = removeSpaces(input) ;
+        String second = reverse(first);
+        for (int i = 0; i <first.length() ; i++) {
+            if(first.charAt(i) != second.charAt(i)){
+                return false;
+            }
+
+        }
+        return true;
+    }
+
+    public static String reverse(String input){
+        String rev = " ";
+        for (int i = 0; i < input.length(); i++) {
+            rev = input.charAt(i) + rev ;
+
+        }
+        return rev;
+    }
     public static String removeSpaces(String input){
         input  = input.toLowerCase();
         String rev = "";
