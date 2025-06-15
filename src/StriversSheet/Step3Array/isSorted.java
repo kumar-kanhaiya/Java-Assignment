@@ -1,5 +1,6 @@
 package StriversSheet.Step3Array;
 // leetcode - 1752
+// very good question
 public class isSorted {
     public static void main(String[] args) {
         int[] array = {2,1,3,4};
