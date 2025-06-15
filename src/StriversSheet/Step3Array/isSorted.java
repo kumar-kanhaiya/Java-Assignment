@@ -4,4 +4,7 @@ public class isSorted {
     public static void main(String[] args) {
 
     }
+    public static boolean check(int[] array) {
+
+    }
 }
