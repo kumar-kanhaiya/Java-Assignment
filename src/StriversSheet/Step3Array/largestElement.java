@@ -3,6 +3,7 @@ package StriversSheet.Step3Array;
 public class largestElement {
     public static void main(String[] args) {
     int[] array = {3,3,6,1};
+        System.out.println(largest(array));
 
     }
     public static int largest(int[] array ){
