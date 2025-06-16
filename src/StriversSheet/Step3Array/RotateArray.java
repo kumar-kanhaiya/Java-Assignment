@@ -12,13 +12,13 @@ public class RotateArray {
 
     }
     public static void rotate(int[] nums, int k) {
-        int[] newArray = nums;
+//        int[] newArray = nums;
         int i = 1;
         while(i<= k){
-            newArray = ro(newArray);
+            nums = ro(nums);
             i++;
         }
-        System.out.print(Arrays.toString(newArray) );
+        System.out.print(Arrays.toString(nums) );
 
 
     }
