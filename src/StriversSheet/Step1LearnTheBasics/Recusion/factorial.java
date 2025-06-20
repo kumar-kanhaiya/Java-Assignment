@@ -1,5 +1,7 @@
 package StriversSheet.Step1LearnTheBasics.Recusion;
 
+// recursion 
+
 public class factorial {
     public static void main(String[] args) {
         System.out.printf("factorial of %d is %d " , 5 , fact(5));
