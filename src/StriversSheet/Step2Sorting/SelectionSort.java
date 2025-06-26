@@ -2,7 +2,7 @@ package StriversSheet.Step2Sorting;
 
 
 import java.util.Arrays;
-// Selection sort
+// Selection Sort
 
 public class SelectionSort {
     public static void main(String[] args) {
