@@ -21,4 +21,10 @@ public class leetcode1480 {
         }
         return ans;
     }
+    public static int[] runningSum2(int[] nums) {
+        for(int i = 1; i < nums.length;i++){
+            nums[i] += nums[i - 1];
+        }
+        return nums;
+    }
 }
