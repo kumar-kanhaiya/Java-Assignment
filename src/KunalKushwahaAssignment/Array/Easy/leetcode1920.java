@@ -1,4 +1,4 @@
-package KunalKushwahaAssignment.Array;
+package KunalKushwahaAssignment.Array.Easy;
 
 import java.util.Arrays;
 
