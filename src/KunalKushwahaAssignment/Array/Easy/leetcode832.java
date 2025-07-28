@@ -8,7 +8,7 @@ public class leetcode832 {
         flipAndInvertImage(array);
 
     }
-    public static void flipAndInvertImage(int[][] image) {
+    public static int[][] flipAndInvertImage(int[][] image) {
         for (int i = 0; i < image.length ; i++) {
             int left = 0;
             int right = image.length - 1;
@@ -21,11 +21,16 @@ public class leetcode832 {
             }
         }
         for (int i = 0; i < image.length ; i++) {
-            for (int j = 0; j <image[i].length ; j++) {
-                System.out.print(image[i][j]);
+            for (int j = 0; j < image[i].length; j++) {
+                if(image[i][j] == 1){
+                    image[i][j] = 0;
+                }
+                else{
+                    image[i][j] = 1;
+                }
             }
-            System.out.println();
         }
+        return image;
     }
 
 }
