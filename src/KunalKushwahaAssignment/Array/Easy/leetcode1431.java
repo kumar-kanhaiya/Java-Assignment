@@ -32,4 +32,5 @@ public class leetcode1431 {
         }
         return maxx;
     }
+
 }
