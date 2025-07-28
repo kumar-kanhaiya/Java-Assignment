@@ -1,5 +1,6 @@
 package KunalKushwahaAssignment.Array.Easy;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class leetcode1389 {
@@ -10,7 +11,15 @@ public class leetcode1389 {
 
     }
     public static int[] createTargetArray(int[] nums, int[] index) {
-        int[] ans = new int[nums.length];
-
+        // by using array list ;
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i < nums.length ; i++) {
+            list.add(index[i] , nums[i]);
+        }
+        int[] array = new int[list.size()];
+        for (int i = 0; i < array.length ; i++) {
+            array[i] = list.get(i);
+        }
+        return array;
     }
 }
