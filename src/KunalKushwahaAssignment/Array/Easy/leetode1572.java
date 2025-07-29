@@ -13,11 +13,8 @@ public class leetode1572 {
                 if(i == j){
                     sum += mat[i][j];
                 }
-                if(i == mat.length-1 && j==0){
+                if(i+j == mat.length-1 && i!=j){
                     sum += mat[i][j];
-                }
-                if(j == mat.length - 1 && i ==0){
-                    sum+= mat[i][j];
                 }
             }
         }
