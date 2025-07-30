@@ -14,5 +14,14 @@ public class leetcode2419 {
             }
         }
     }
+    public static int max(int[] array ){
+        int maz = array[0];
+        for (int i = 1; i <array.length ; i++) {
+            if(array[i] > maz){
+                maz = array[i];
+            }
+        }
+        return maz;
+    }
 
 }
