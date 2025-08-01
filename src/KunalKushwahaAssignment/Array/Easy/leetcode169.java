@@ -8,14 +8,14 @@ public class leetcode169 {
         int minimum = nums.length/2;
         for (int i = 0; i < nums.length ; i++) {
             if(occurence(nums,nums[i]) > minimum){
-                return occurence(nums,nums[i]);
+                return nums[i];
             }
         }
         return -1;
 
     }
     public static int occurence(int[] array , int number ){
-        int count = 0;
+        int count = 1;
         for(int element : array){
             if(element == number){
                 count++;
