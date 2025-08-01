@@ -15,17 +15,17 @@ public class leetcode54 {
         int n = matrix[0].length ;
         int srow = 0 , erow = m - 1, scoll = 0 , ecoll = n-1;
         while(srow<= erow && scoll<= ecoll){
-            // top
+            // top case
             for (int i = scoll; i <= ecoll ; i++) {
                     list.add(matrix[srow][i]);
             }
 
-            // right
+            // right case
             for (int i = srow+1; i <=erow ; i++) {
                 list.add(matrix[i][ecoll]);
             }
 
-            // bottom
+            // bottom case
             for (int i = ecoll-1; i >=scoll ; i--) {
                 if(srow == erow){
                     break;
@@ -33,7 +33,7 @@ public class leetcode54 {
                 list.add(matrix[erow][i]);
             }
 
-            // left
+            // left case
             for (int i = erow - 1; i >=srow +1  ; i--) {
                 if(scoll == ecoll){
                     break;
