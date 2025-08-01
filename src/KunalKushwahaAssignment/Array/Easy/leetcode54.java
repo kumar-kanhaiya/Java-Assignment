@@ -11,18 +11,39 @@ public class leetcode54 {
     }
     public static List<Integer> spiralOrder(int[][] matrix) {
         ArrayList<Integer> list = new ArrayList<>();
-        for (int row = 0; row < matrix.length ; row++) {
-            for (int col = 0; col <matrix[row].length ; col++) {
-                if (row == 0 || col == matrix.length - 2){
-                    list.add(matrix[row][col]);
-                }
-                else if(col == matrix[row].length - 1){
-                    list.add(matrix[col][row]);
-                }
-                else if(row == matrix.length - 1){
-                    list.add(matrix[row][col]);
-                }
+        int m = matrix.length ;
+        int n = matrix[0].length ;
+        int srow = 0 , erow = m - 1, scoll = 0 , ecoll = n-1;
+        while(srow<= erow && scoll<= ecoll){
+            // top
+            for (int i = scoll; i <= ecoll ; i++) {
+                    list.add(matrix[srow][i]);
             }
+
+            // right
+            for (int i = srow+1; i <=erow ; i++) {
+                list.add(matrix[i][ecoll]);
+            }
+
+            // bottom
+            for (int i = ecoll-1; i >=scoll ; i--) {
+                if(srow == erow){
+                    break;
+                }
+                list.add(matrix[erow][i]);
+            }
+
+            // left
+            for (int i = erow - 1; i >=srow +1  ; i--) {
+                if(scoll == ecoll){
+                    break;
+                }
+                list.add(matrix[i][scoll]);
+            }
+            srow++;
+            scoll++;
+            ecoll--;
+            erow--;
         }
         return list;
     }
