@@ -1,6 +1,6 @@
 package KunalKushwahaAssignment.Array.Medium;
 
-public class Problem885 {
+public class Problem73 {
     public static void main(String[] args) {
         int[][] array = {{1,2,3},{4,0,6},{7,8,9}};
         setZeroes(array);
@@ -12,13 +12,7 @@ public class Problem885 {
         }
 
     }
-    public static void setZeroes(int[][] matrix) {
-        int srow = 0;
-        int erow = matrix.length - 1;
-        // now my approach is to find the index first then after that 0 all the row and colloum of the index
 
-
-    }
 
 }
 
