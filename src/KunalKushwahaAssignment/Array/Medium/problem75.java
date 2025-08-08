@@ -1,10 +1,12 @@
 package KunalKushwahaAssignment.Array.Medium;
 
+import java.util.Arrays;
+
 public class problem75 {
     public static void main(String[] args) {
         int[] array = {2,0,2,1,1,0};
         sortColors(array);
-        System.out.println();
+        System.out.println(Arrays.toString(array));
 
     }
     // in this question 0 is denoted for red 1 is denoted for white
@@ -14,7 +16,7 @@ public class problem75 {
         for (int i = 0; i < nums.length; i++) {
             int last = nums.length - i - 1;
             int maxIndex = maxIndex(nums , 0 , last);
-            swap(nums,i,maxIndex);
+            swap(nums,maxIndex,last);
         }
     }
     public static int maxIndex(int[] array , int start , int end ){
