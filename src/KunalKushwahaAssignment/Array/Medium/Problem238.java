@@ -8,6 +8,7 @@ public class Problem238 {
         System.out.println(Arrays.toString(productExceptSelf(array)));
 
     }
+    // good approach but time limit exceed 😒
     public  static  int[] productExceptSelf(int[] nums) {
         Queue<Integer> stack = new LinkedList<>();
         int[] result = new int[nums.length];
