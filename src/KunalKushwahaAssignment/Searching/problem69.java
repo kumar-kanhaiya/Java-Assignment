@@ -29,6 +29,9 @@ public class problem69 {
     }
     // it give some problem second approach
     public static int mySqrt(int number){
+        if(number == 0){
+            return 0;
+        }
         int start = 1;
         int end = number;
         while(start <= end){
