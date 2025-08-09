@@ -7,7 +7,7 @@ public class problem69 {
 
     }
     // the solution is done by using binary search
-    public static  int mySqrt(int x) {
+    public static  int mySqrt1(int x) {
         int start = 0;
         int end = x;
         while(start <= end){
@@ -25,6 +25,25 @@ public class problem69 {
                 return mid;
             }
         }
-        return -1;
+        return end;
+    }
+    // it give some problem second approach
+    public static int mySqrt(int number){
+        int start = 1;
+        int end = number;
+        while(start <= end){
+            int mid = start + (end - start)/2;
+
+            if(mid == number/mid){
+                return mid;
+            }
+            else if(mid > number/mid){
+                end = mid - 1;
+            }
+            else{
+                start = mid +1 ;
+            }
+        }
+        return end;
     }
 }
