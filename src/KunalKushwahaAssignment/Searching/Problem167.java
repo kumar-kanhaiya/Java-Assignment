@@ -8,24 +8,26 @@ public class Problem167 {
         System.out.println(Arrays.toString(twoSum(array,0)));
 
     }
-    public static int[] twoSum(int[] array, int target) {
-        int start = 0;
-        int end = array.length;
-        while(start <= end){
-            int mid = start  + (end - start)/2;
-            if(array[mid] + array[start] == target){
-                // we find our ans
-                return new int[]{start+1 , mid+1};
+    //
+        public static int[] twoSum(int[] array, int target) {
+            int start = 0;
+            int end = array.length-1;
+            while(start < end){
+//                int mid = start  + (end - start)/2;
+                if(array[start] + array[end] == target){
+                    // we find our ans
+                    return new int[]{start+1 , end+1};
+                }
+                else if(array[end] + array[start] > target){
+                    end -- ;
+
+                }
+                else{
+                    start++;
+                }
             }
-            else if(array[mid] + array[start] > target){
-                end = mid - 1;
-            }
-            else{
-                start = mid + 1;
-            }
+            return new int[]{-1,-1};
         }
-        return new int[]{-1,-1};
-    }
 
 
 }
