@@ -8,7 +8,8 @@ public class Problem167 {
         System.out.println(Arrays.toString(twoSum(array,0)));
 
     }
-    //
+    // done with 98% beats
+
         public static int[] twoSum(int[] array, int target) {
             int start = 0;
             int end = array.length-1;
