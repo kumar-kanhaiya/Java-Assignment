@@ -12,7 +12,17 @@ public class Problem278 {
         int end = n;
         while(start <= end){
             int mid = start + (end - start)/2;
-
+            if(isBadVersion(mid) == true && isBadVersion(mid - 1) == false){
+                // ans find
+                return mid;
+            }
+            else if(isBadVersion(mid) == true){
+                end = mid -1;
+            }
+            else{
+                start = mid + 1;
+            }
         }
+        return end;
     }
 }
