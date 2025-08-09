@@ -23,7 +23,7 @@ public class Problem374 {
     2. declaring mid then take conditions when the ans == mid then return mid
      */
 
-    //
+    // done with 100% beats
     public static int guessNumber(int n) {
         int start = 0;
         int end = n;
