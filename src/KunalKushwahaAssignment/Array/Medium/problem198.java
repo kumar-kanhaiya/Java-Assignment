@@ -7,20 +7,7 @@ public class problem198 {
 
     }
     public static int rob(int[] nums) {
-        int count = 0;
-        for (int i = 0; i < nums.length ; i++) {
-            for (int j = 0; j < nums.length ; j++) {
-                if(j == i || (j == i+1 && (i+1 )< nums.length)){
-                    continue;
-                }
-                else if (j == i-1 ){
-                    continue;
-                }
-                else{
-                    count++;
-                }
-            }
-        }
-        return count;
+        int ans = 0;
+        return ans ;
     }
 }
