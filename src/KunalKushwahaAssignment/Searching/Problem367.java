@@ -6,6 +6,8 @@ public class Problem367 {
 
     }
     // this problem is done by using binary search
+
+    // beats 100%%
     public static boolean isPerfectSquare(int num) {
         if(num <= 0){
             return false;
