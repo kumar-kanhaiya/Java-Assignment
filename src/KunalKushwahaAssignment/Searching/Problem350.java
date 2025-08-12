@@ -1,31 +1,42 @@
 package KunalKushwahaAssignment.Searching;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class Problem350 {
     public static void main(String[] args) {
-        int[] array = {}
+        int[] array = {1,2,2,1};
+        int[] arr = {2,2};
+        int[] ans = intersect(array , arr);
+        System.out.println(Arrays.toString(ans));
 
     }
-    public int[] intersect(int[] nums1, int[] nums2){
+    public  static int[] intersect(int[] nums1, int[] nums2){
         Queue<Integer> list = new LinkedList<>();
         sortArray(nums1);
         sortArray(nums2);
-        for (int i = 0; i < nums1.length ; i++) {
-            for (int j = 0; j < nums2.length ; j++) {
-                if(nums1[i] == nums2[j]){
-                    list.add(nums1[i]);
-                }
-                else{
-                    continue;
-                }
+        int i = 0;
+        int j =0 ;
+        while(i < nums1.length && j < nums2.length){
+            if(nums1[i] == nums2[j]){
+                list.add(nums1[i]);
+                i++;
+                j++;
+
+            }
+            else if(nums1[i] < nums2[j]){
+                i++;
+            }
+            else{
+                j++;
             }
         }
+
         int size = list.size();
         int[] ans = new int[size];
-        for (int i = 0; i < size; i++) {
-            ans[i] = list.remove();
+        for (int k = 0; k < size; k++) {
+            ans[k] = list.remove();
         }
         return ans;
 
