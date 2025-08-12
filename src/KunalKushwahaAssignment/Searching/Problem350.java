@@ -11,6 +11,7 @@ public class Problem350 {
         int[] ans = intersect(array , arr);
         System.out.println(Arrays.toString(ans));
 
+
     }
     public  static int[] intersect(int[] nums1, int[] nums2){
         Queue<Integer> list = new LinkedList<>();
