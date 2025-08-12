@@ -12,6 +12,9 @@ public class problem349 {
         System.out.println(Arrays.toString(ans));
 
     }
+
+    // this question is also done with set approach without using removal Dublicate function
+
     public static int[] intersection(int[] nums1, int[] nums2) {
         Queue<Integer> list = new LinkedList<>();
         sortArray(nums1);
