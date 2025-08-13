@@ -10,6 +10,27 @@ public class Problem888 {
         int[] ans = fairCandySwap(array , second);
         System.out.println(Arrays.toString(ans));
     }
+    public int[] fairCandySwap2(int[] aliceSizes, int[] bobSizes) {
+        int sumA = 0, sumB = 0;
+        // this is best approach
+        // Step 1: Calculate sumA and sumB
+        for (int a : aliceSizes) sumA += a;
+        for (int b : bobSizes) sumB += b;
+
+        // Step 2: Try every possible swap
+        for (int a : aliceSizes) {
+            for (int b : bobSizes) {
+                int newSumA = sumA - a + b;
+                int newSumB = sumB - b + a;
+
+                if (newSumA == newSumB) {
+                    return new int[]{a, b}; // Found a valid swap
+                }
+            }
+        }
+
+        return new int[0]; // Will never reach here (guaranteed one solution)
+    }
     public static int[] fairCandySwap(int[] aliceSizes, int[] bobSizes) {
         // we do this question with the help of binary search
         int i = 0;
