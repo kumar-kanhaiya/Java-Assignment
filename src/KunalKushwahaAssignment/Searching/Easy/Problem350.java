@@ -1,4 +1,4 @@
-package KunalKushwahaAssignment.Searching;
+package KunalKushwahaAssignment.Searching.Easy;
 
 import java.util.Arrays;
 import java.util.LinkedList;

@@ -1,4 +1,4 @@
-package KunalKushwahaAssignment.Searching;
+package KunalKushwahaAssignment.Searching.Easy;
 
 public class Problem367 {
     public static void main(String[] args) {
