@@ -4,9 +4,11 @@ import java.util.Arrays;
 
 public class Problem888 {
     public static void main(String[] args) {
-        int[] array = {5,4,3,2,1};
-        sortArray(array);
-        System.out.println(Arrays.toString(array));
+        int[] array = {2};
+//        sortArray(array);
+        int[] second = {1,3};
+        int[] ans = fairCandySwap(array , second);
+        System.out.println(Arrays.toString(ans));
     }
     public static int[] fairCandySwap(int[] aliceSizes, int[] bobSizes) {
         // we do this question with the help of binary search
@@ -18,13 +20,31 @@ public class Problem888 {
         int sum2 = Sum(bobSizes);
         int deff = (sum1 - sum2)/2;
 
-        while(i< aliceSizes.length ){
-            int sum = 0;
-            for(int element : bobSizes){
+        for(int element : aliceSizes){
+            int b = element - deff;
+            if (binarySearch(bobSizes, b)) {
 
+                return new int[]{element , b};
             }
-            i++;
         }
+        return new int[0];
+    }
+    public static boolean binarySearch(int[] array , int target){
+        int start = 0;
+        int end = array.length- 1;
+        while(start <= end){
+            int mid = start + (end-start)/2;
+            if(array[mid] == target){
+                return true;
+            }
+            else if (array[mid] > target){
+                end = mid -1 ;
+            }
+            else{
+                start = mid +1;
+            }
+        }
+        return false;
     }
     public static void sortArray(int[] array ){
         int end = array.length - 1;
@@ -51,6 +71,7 @@ public class Problem888 {
         for(int element : array){
             sum += element;
         }
+        return sum;
     }
 
 //    public static void swap(int[] array , int first , int second){
