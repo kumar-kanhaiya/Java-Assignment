@@ -2,7 +2,7 @@ package KunalKushwahaAssignment.Searching.Medium;
 
 public class Problem81 {
     public static void main(String[] args) {
-        int[] array = {1,0,1,1,1};
+        int[] array = {2,5,6,0,0,1,2};
         System.out.println(search3(array,0));
 
     }
@@ -124,6 +124,7 @@ public class Problem81 {
             if(nums[start] == nums[mid] && nums[mid] == nums[end]){
                 start++;
                 end--;
+                continue;
             }
             if(nums[start] <= nums[mid]){
                 if(nums[start] <= target && target <= nums[mid]){
