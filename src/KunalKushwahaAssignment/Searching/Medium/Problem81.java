@@ -2,6 +2,8 @@ package KunalKushwahaAssignment.Searching.Medium;
 
 public class Problem81 {
     public static void main(String[] args) {
+        int[] array = {1,0,1,1,1};
+        System.out.println(search(array,0));
 
     }
     public static boolean search(int[] nums, int target) {
@@ -45,6 +47,19 @@ public class Problem81 {
         return - 1;
     }
     public static boolean binarySearch(int[] arr , int target , int start , int end ){
-
+        while(start <= end){
+            int mid = start + (end - start)/2;
+            if(arr[mid] == target){
+                // ans found
+                return true;
+            }
+            if(arr[mid] > target){
+                end = mid - 1;
+            }
+            else{
+                start = mid + 1;
+            }
+        }
+        return false;
     }
 }
