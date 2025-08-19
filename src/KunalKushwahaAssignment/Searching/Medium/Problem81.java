@@ -6,6 +6,7 @@ public class Problem81 {
         System.out.println(search(array,0));
 
     }
+    // 279 test cases pass
     public static boolean search(int[] nums, int target) {
         int pivot = pivot(nums);
         // array not rotated case
