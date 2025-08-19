@@ -17,10 +17,10 @@ public class problem540 {
                 return nums[mid];
             }
             else if(nums[mid] >= nums[mid -1]){
-                start = mid +1;
+                start = start +1;
             }
             else{
-                end = mid -1;
+                end = end -1;
             }
 
         }
