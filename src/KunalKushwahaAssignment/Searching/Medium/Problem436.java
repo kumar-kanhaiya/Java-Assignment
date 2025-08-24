@@ -6,40 +6,39 @@ import java.util.Queue;
 
 public class Problem436 {
     public static void main(String[] args) {
-        int[][] array = { {1,2},{2,3},{0,1}};
+        int[][] array = { {3,4},{2,3},{1,2}};
         System.out.println(Arrays.toString(findRightInterval(array)));
 
     }
+    // this question is done with the help of binary search and sorting
     public static int[] findRightInterval(int[][] intervals) {
+//        int start = intervals.length;
+//        int end = intervals[0].length;
+
+        int first = 0 ;
+        int index = 0;
         int[] ans = new int[intervals.length];
-        Queue list = new LinkedList();
-        for(int i = 0 ; i < intervals.length ; i++){
-            int check = i+1;
+        while(first <= intervals.length - 1) {
+            for (int i = 0; i < intervals.length; i++) {
 
-            if(check == intervals.length ){
-                check = 0;
-            }
-            int fi = intervals[i][1];
-            for (int j = 0; j < intervals.length ; j++) {
-                if(intervals[check][j] >= fi ){
-                    list.add(intervals[i][0]);
+                if(i == first){
+                    continue;
                 }
-                else{
-                    list.add(-1);
+
+                if (intervals[i][0] >= intervals[first][1]) {
+                    ans[index] = i;
+                    index++;
+                }
+                if(!(intervals[i][0] >= intervals[first][1])){
+                    ans[index] = -1;
+                    index++;
                 }
             }
+            first++;
         }
-        for (int i = 0; i < ans.length; i++) {
-            ans[i] = (int) list.remove();
-        }
+
+
         return ans;
-
     }
 
-    public static boolean isGreater(int[][] array , int target , int start ){
-        if(array[start][0] >= target){
-            return true;
-        }
-        return false;
-    }
 }
