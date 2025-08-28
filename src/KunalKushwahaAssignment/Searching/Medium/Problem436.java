@@ -17,10 +17,16 @@ public class Problem436 {
             pairs[i][0] = intervals[i][0];
             pairs[i][1] = i;
         }
-        int[] ans = new int[intervals.length];
-        int index = 0;
-        while(start < end){
-            ans[start] = binarySearch(list , intervals[start][1]);
+        int[] ans = new int[end];
+        for (int i = 0; i < end; i++) {
+            int target = intervals[i][1];
+            int index = binarySearch(pairs , target);
+            if(index == -1){
+                ans[i] = index;
+            }
+            else{
+                ans[i] = pairs[i][1];
+            }
         }
         return ans;
     }
