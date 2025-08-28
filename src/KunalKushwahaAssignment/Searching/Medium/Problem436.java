@@ -1,8 +1,6 @@
 package KunalKushwahaAssignment.Searching.Medium;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class Problem436 {
     public static void main(String[] args) {
@@ -14,7 +12,24 @@ public class Problem436 {
     public static int[] findRightInterval(int[][] intervals) {
 
 
+    }
 
+    public static int binarySearch(ArrayList<Integer> list , int target){
+        int start = 0;
+        int end = list.size();
+        Collections.sort(list);
+        while(start <= end){
+            int mid = start + (end - start)/2;
+            if(list.get(mid) >= target){
+                // ans found
+                return mid;
+            }
+            else{
+                start = mid + 1;
+            }
+
+        }
+        return -1;
     }
 
 }
