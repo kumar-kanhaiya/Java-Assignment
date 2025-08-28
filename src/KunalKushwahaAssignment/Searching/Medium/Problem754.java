@@ -4,7 +4,7 @@ public class Problem754 {
     public static void main(String[] args) {
 
     }
-    public int reachNumber(int target) {
-
-    }
+//    public int reachNumber(int target) {
+//
+//    }
 }
