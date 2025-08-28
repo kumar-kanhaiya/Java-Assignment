@@ -17,6 +17,7 @@ public class Problem436 {
             pairs[i][0] = intervals[i][0];
             pairs[i][1] = i;
         }
+        Arrays.sort(pairs ,(a,b) -> Integer.compare(a[0] , b[0]));
         int[] ans = new int[end];
         for (int i = 0; i < end; i++) {
             int target = intervals[i][1];
