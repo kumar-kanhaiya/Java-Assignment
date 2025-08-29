@@ -11,32 +11,19 @@
                 return 0;
             }
             int i = 1 ;
-            int steps = 1;
+            int steps = 0;
             int sum = 0 ;
-            while(sum >= target && (sum - target) % 2 == 0){
-//                sum = sum+i;
-//                if((sum ) ==  Math.abs(target) ){
-//                    return steps;
-//                }
-
-                if(sum +i > Math.abs(target)){
-                    if(sum >= target && (sum - target)%2 == 0 ){
-                        return steps;
-
-                    }
-                    else{
-                        sum += 1;
-                        steps++;
-                        i++;
-                    }
+            while(true){
+                sum = sum + i;
+                steps++;
+                if(sum >= target && (sum - target)%2 == 0){
+                    return steps;
                 }
                 else{
-                    sum = sum + i;
-                    steps++;
                     i++;
                 }
             }
-            return steps;
+
 
         }
     }
