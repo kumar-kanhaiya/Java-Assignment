@@ -16,13 +16,26 @@
             while(true){
                 sum = sum + i;
                 steps++;
-                if(sum >= target && (sum - target)%2 == 0){
+                if(sum >= Math.abs(target) && (sum - Math.abs(target))%2 == 0){
                     return steps;
                 }
                 else{
                     i++;
                 }
             }
+
+
+        }
+        public int reachNumber2(int target) {
+            target=Math.abs(target);
+            int sum=0,k=0;
+            while(sum<target || (sum-target)%2!=0){
+                k++;
+                sum+=k;
+
+            }
+            return k;
+
 
 
         }
