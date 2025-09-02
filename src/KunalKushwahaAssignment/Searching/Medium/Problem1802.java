@@ -7,7 +7,7 @@ public class Problem1802 {
     }
 
     public static int maxValue(int n, int index, int maxSum) {
-        int[] ans = new int[n];
+
         int sum = 0;
         int fill = 1 ;
 
@@ -22,26 +22,25 @@ public class Problem1802 {
             }
             sum = 0;
             // middle the main case
-            ans[index] = fill;
-            sum += ans[index];
+            sum += fill;
 
 
             // for left case
             int l = 1;
             for (int i = 0; i < index; i++) {
-                ans[i] = l;
+                sum += l;
                 l++;
-                sum += ans[i];
+
             }
 
             // for right Case
             int r = 1;
             for (int i = index+ 1; i < n; i++) {
-                ans[i] = r;
+                sum += r;
                 r++;
-                sum += ans[i];
 
             }
+            fill++;
 
         }
         return -1;
