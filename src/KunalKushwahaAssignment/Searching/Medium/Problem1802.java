@@ -8,40 +8,45 @@ public class Problem1802 {
 
     public static int maxValue(int n, int index, int maxSum) {
         int[] ans = new int[n];
-        int x = n;
         int sum = 0;
-        while(sum <= maxSum){
-            if(sum > maxSum) {
-                ans[index] = x-1;
-                x= x-1;
-            }
-            else {
-                ans[index] = x;
-            }
-            sum =0;
-            int check = x;
+        int fill = 1 ;
 
-            for (int i = index; i < n ; i++) {
-                sum += check--;
-//                check = check--;
+        while(sum  <= maxSum){
+
+            // terminating case
+            if(sum == maxSum){
+                return fill;
             }
-            int lcheck = x;
-            for(int i =0 ; i<index ; i++){
-                sum += lcheck--;
-//                lcheck--;
+            if(sum > maxSum){
+                return fill- 1;
+            }
+            sum = 0;
+            // middle the main case
+            ans[index] = fill;
+            sum += ans[index];
+
+
+            // for left case
+            int l = 1;
+            for (int i = 0; i < index; i++) {
+                ans[i] = l;
+                l++;
+                sum += ans[i];
             }
 
+            // for right Case
+            int r = 1;
+            for (int i = index+ 1; i < n; i++) {
+                ans[i] = r;
+                r++;
+                sum += ans[i];
+
+            }
 
         }
-        return ans[index];
+        return -1;
+
 
     }
-    public static int sum(int[] array ){
-        int s = 0;
-        for(int element : array){
-            s += element;
-        }
-        return s;
 
-    }
 }
