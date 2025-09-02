@@ -2,7 +2,7 @@ package KunalKushwahaAssignment.Searching.Medium;
 
 public class Problem1802 {
     public static void main(String[] args) {
-        System.out.println(maxValue(6,1,10));
+        System.out.println(maxValue(8,7,14));
 
     }
 
@@ -13,11 +13,11 @@ public class Problem1802 {
         int ans = 1;
 
         while(low <= high){
-            int mid = (low + high)/2;
+            int mid = low + (high - low)/2;
 
             if(canPlace(mid , n , index , maxSum)){
                 ans = mid;
-                low = mid+ 1;
+                low = mid + 1;
             }
             else{
                 high = mid -1;
@@ -28,19 +28,35 @@ public class Problem1802 {
         return ans;
     }
 
-    public static  boolean canPlace(int mid , int n , int index , int maxSum){
-        int sum = 0 ;
-        sum += mid;
-        // left case
-        int l = 1;
-        for (int i = 0; i < index ; i++) {
-            sum += l;
-            l++;
+    public static boolean canPlace(int mid, int n, int index, int maxSum) {
+        long sum = mid;
+
+
+        int leftLen = index;
+        if (leftLen < mid) {
+
+            long high = mid - 1;
+            long low = mid - leftLen;
+            sum += (high + low) * leftLen / 2;
+        } else {
+
+            long high = mid - 1;
+            long low = 1;
+            sum += (high + low) * (mid - 1) / 2;
+            sum += (leftLen - (mid - 1)) * 1;
         }
-        int r = 1;
-        for (int i = n ; i > index + 1; i--) {
-            sum += r;
-            r++;
+
+
+        int rightLen = n - index - 1;
+        if (rightLen < mid) {
+            long high = mid - 1;
+            long low = mid - rightLen;
+            sum += (high + low) * rightLen / 2;
+        } else {
+            long high = mid - 1;
+            long low = 1;
+            sum += (high + low) * (mid - 1) / 2;
+            sum += (rightLen - (mid - 1)) * 1;
         }
 
         return sum <= maxSum;
