@@ -2,6 +2,8 @@ package KunalKushwahaAssignment.Searching.Medium;
 
 public class Problem875 {
     public static void main(String[] args) {
+        int[] array = {805306368,805306368,805306368};
+        System.out.println(minEatingSpeed(array,1000000000));
 
     }
     public static int minEatingSpeed(int[] piles, int h) {
@@ -12,9 +14,9 @@ public class Problem875 {
         // we do using binary search
         while (start <= end){
             int mid = start  + (end - start)/2 ;
-            int totalHour = 0;
+            long totalHour = 0;
             for (int pile : piles) {
-                totalHour += (pile + mid - 1) / mid;
+                totalHour += (pile + mid - 1L) / mid;
             }
 
             if(totalHour <= h){
