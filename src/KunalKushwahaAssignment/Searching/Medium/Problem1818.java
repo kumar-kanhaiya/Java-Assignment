@@ -22,9 +22,11 @@ public class Problem1818 {
 
         int start = 0;
         int end = copyArray.length -1;
-        while(start <= end){
-
-        }
+//        while(start <= end){
+//
+//        }
+        // not done
+        return -1;
     }
 
     public static void sorting(int[] array){
