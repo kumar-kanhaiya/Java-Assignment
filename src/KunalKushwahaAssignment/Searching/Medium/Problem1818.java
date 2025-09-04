@@ -10,10 +10,21 @@ public class Problem1818 {
 
     }
     public int minAbsoluteSumDiff(int[] nums1, int[] nums2) {
-        sorting(nums1);
-        sorting(nums2);
-        int ans = 0;
+        if(nums1.length != nums2.length){
+            return -1;
+        }
+        int[] copyArray = new int[nums1.length];
+        for (int i = 0; i < copyArray.length; i++) {
+            copyArray[i] = nums1[i];
+        }
+        sorting(copyArray);
+        long ans = sumOfElement(nums1,nums2);
 
+        int start = 0;
+        int end = copyArray.length -1;
+        while(start <= end){
+
+        }
     }
 
     public static void sorting(int[] array){
