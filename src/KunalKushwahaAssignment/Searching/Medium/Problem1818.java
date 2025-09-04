@@ -9,9 +9,12 @@ public class Problem1818 {
         System.out.println(Arrays.toString(array));
 
     }
-//    public int minAbsoluteSumDiff(int[] nums1, int[] nums2) {
-//
-//    }
+    public int minAbsoluteSumDiff(int[] nums1, int[] nums2) {
+        sorting(nums1);
+        sorting(nums2);
+        int ans = 0;
+
+    }
 
     public static void sorting(int[] array){
         int start = 0;
@@ -34,5 +37,13 @@ public class Problem1818 {
             }
         }
         return max;
+    }
+
+    public static int sumOfElement(int[] array , int[] array2){
+        int sum = 0;
+        for (int i = 0; i < array.length ; i++) {
+            sum += Math.abs(Math.abs(array[i]) - Math.abs(array2[i]));
+        }
+        return sum;
     }
 }
