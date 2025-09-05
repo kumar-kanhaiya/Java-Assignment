@@ -15,11 +15,12 @@ public class Problem74 {
         while(start <= end){
             int mid = start + (end - start)/2;
 
-            if(matrix[mid][0] <= target && matrix[mid][coll - 1] <= target){
+            if (matrix[mid][0] <= target && target <= matrix[mid][coll - 1]) {
                 row = mid;
                 break;
             }
-            else if(matrix[mid][0] < target){
+
+            else if(matrix[mid][0] > target){
                 end = mid -1;
             }
             else{
@@ -40,10 +41,10 @@ public class Problem74 {
                 return true;
             }
             else if(matrix[row][mid] > target){
-                left = mid + 1;
+                right = mid - 1;
             }
             else{
-                right = mid -1;
+                left = mid +1;
             }
         }
         return false;
