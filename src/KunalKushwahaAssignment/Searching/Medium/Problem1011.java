@@ -4,11 +4,13 @@ import java.util.Arrays;
 
 public class Problem1011 {
     public static void main(String[] args) {
+        int[] array = {1,2,3,4,5,6,7,8,9,10};
+        System.out.println(shipWithinDays(array,5));
 
     }
     // array is already sorted
     // so we use binary search for this problem also it is done with the help of sliding window
-        public int shipWithinDays(int[] weights, int days) {
+        public static int shipWithinDays(int[] weights, int days) {
     //        Arrays.sort(weights);
 
     //        Arrays.sort(weights);
@@ -34,7 +36,7 @@ public class Problem1011 {
         }
 
         public static int noOfDays(int[] weights , int capacity){
-            int day = 0;
+            int day = 1;
             int load = 0;
             for (int i = 0; i < weights.length; i++) {
                 if(load + weights[i] > capacity){
