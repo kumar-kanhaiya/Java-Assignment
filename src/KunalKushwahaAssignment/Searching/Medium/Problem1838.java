@@ -9,9 +9,27 @@ public class Problem1838 {
         System.out.println(Arrays.toString(arr));
 
     }
-    public int maxFrequency(int[] nums, int k) {
+    public int maxFrequency(int[] arr, int k) {
+        // this problem is done with the help of sliding window
+        sorting(arr);
+//        Arrays.sort(arr);
+        int l = 0;
+        long sum = 0;
+        int result = 0;
 
-        return 0;
+        for (int r = 0; r < arr.length; r++) {
+            sum += arr[r];
+
+            // calculate cost: make all numbers in [l..r] equal to arr[r]
+            while ((long) arr[r] * (r - l + 1) - sum > k) {
+                sum -= arr[l];  // shrink from left
+                l++;
+            }
+
+            result = Math.max(result, r - l + 1);
+        }
+
+        return result;
     }
     public static void sorting(int[] array ){
         int start = 0;
