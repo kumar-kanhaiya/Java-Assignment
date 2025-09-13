@@ -1,11 +1,14 @@
 package KunalKushwahaAssignment.Sorting.Revision;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Queue;
 
 public class MergeSort {
     public static void main(String[] args) {
-
+        int[] array = {1,3,4,5,2};
+        mergeSort(array , 0 , array.length-1);
+        System.out.println(Arrays.toString(array));
     }
     public static void mergeSort(int[] array , int low , int high ){
         int mid = (low + high)/2;
@@ -22,6 +25,8 @@ public class MergeSort {
         Queue<Integer> temp = new ArrayDeque<>();
         int left = low;
         int right = mid + 1;
+
+
         while(left<= mid && right<= high){
             if(array[left] < array[right]){
                 temp.add(array[left]);
@@ -40,6 +45,9 @@ public class MergeSort {
             temp.add(array[right]);
             right++;
         }
-
+        // insert the element in new array
+        for (int i = low; i <= high; i++) {
+            array[i] = temp.remove();
+        }
     }
 }
