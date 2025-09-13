@@ -62,5 +62,17 @@ public class Problem217 {
             array[i] = temp.remove();
         }
     }
+    // second approach
+    public boolean containsDuplicate2(int[] nums) {
+        int n=nums.length;
+        HashSet<Integer> h=new HashSet<>();
+        for(int i=0;i<n;i++){
+            if(h.contains(nums[i])){
+                return true;
+            }
+            h.add(nums[i]);
+        }
+        return false;
+    }
 
 }
