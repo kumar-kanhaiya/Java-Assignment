@@ -9,18 +9,11 @@ public class Problem628 {
 
     public static int maximumProduct(int[] nums) {
         sort(nums);
-        int ans = 1;
-        if(nums.length < 3){
-            for (int i = 0; i < nums.length ; i++) {
-                ans *= nums[i];
-            }
-        }
-        else{
-            for (int i = nums.length-1; i >= nums.length - 3 ; i--) {
-                ans *= nums[i];
-            }
-        }
-        return ans;
+        int n = nums.length;
+        int option1 = nums[n-1] * nums[n-2] * nums[n-3];
+        int option2 = nums[0] * nums[1] * nums[n-1];
+        return Math.max(option1, option2);
+
     }
 
     public static void sort(int[] array){
