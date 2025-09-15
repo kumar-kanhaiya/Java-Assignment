@@ -1,6 +1,7 @@
 package KunalKushwahaAssignment.Sorting.Easy;
 
 import java.util.HashSet;
+import java.util.TreeSet;
 
 public class Problem414 {
     public static void main(String[] args) {
@@ -9,11 +10,13 @@ public class Problem414 {
 
     }
     public static int thirdMax(int[] nums) {
-        sort(nums);
-        HashSet<Integer> set = new HashSet<>();
+
+        TreeSet<Integer> set = new TreeSet<>();
+
         for (int i = 0; i < nums.length; i++) {
             set.add(nums[i]);
         }
+
 
         int[] ans = new int[set.size()];
         int i = 0;
