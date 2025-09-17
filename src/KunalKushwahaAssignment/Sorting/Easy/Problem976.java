@@ -1,7 +1,11 @@
 package KunalKushwahaAssignment.Sorting.Easy;
 
+import java.util.Arrays;
+
 public class Problem976 {
     public static void main(String[] args) {
+        int[] array = {1,2,1,10};
+        System.out.println(largestPerimeter(array));
 
     }
 
@@ -13,19 +17,22 @@ public class Problem976 {
         if(array.length<3){
             return 0;
         }
-        int i = 0;
-        while(i< array.length && i+2 < array.length){
-            int first = i;
-            int second = i+1 ;
-            int third = i+2;
-            boolean check = helper(first,second,third);
-            if(check){
-                // finding the area ;
-                int ch = area(first,second,third);
-                ans = Math.max(ch,ans);
+        for (int i = 0; i < array.length; i++) {
+
+            int j = i;
+            while (j < array.length && j + 2 < array.length) {
+                int first = array[i];
+                int second = array[j+1];
+                int third = array[j+2];
+                boolean check = helper(first, second, third);
+                if (check) {
+                    // finding the area ;
+                    ans = Math.max((first+second+third),ans);
+                }
+                j++;
             }
-            i++;
         }
+        return ans;
 
     }
     public static boolean helper(int a , int b , int c ){
@@ -48,10 +55,17 @@ public class Problem976 {
         array[second] =temp;
     }
 
-    public static int area(int a , int b , int c){
-        float s = (a+b+c)/2f;
-        int result = (int) (s*(s-a)*(s-b)*(s-c));
-        int area = (int)Math.pow(result,0.5);
-        return area;
-    }
+//    public static int max(int a , int b , int c){
+//        if(a>b && a>c){
+//            return a;
+//        }
+//        else if(b>a && b>c){
+//            return b;
+//        }
+//        else{
+//            return c;
+//        }
+//    }
+
+    // second approach
 }
