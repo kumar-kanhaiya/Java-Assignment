@@ -68,4 +68,19 @@ public class Problem976 {
 //    }
 
     // second approach
+    public int largestPerimeter2(int[] array) {
+        Arrays.sort(array);
+
+
+        for (int i = array.length - 1; i >= 2; i--) {
+
+            if (array[i - 2] + array[i - 1] > array[i]) {
+
+                return array[i] + array[i - 1] + array[i - 2];
+            }
+        }
+
+
+        return 0;
+    }
 }
