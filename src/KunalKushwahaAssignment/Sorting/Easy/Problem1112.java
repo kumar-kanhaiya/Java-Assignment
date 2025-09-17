@@ -1,14 +1,12 @@
 package KunalKushwahaAssignment.Sorting.Easy;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Queue;
+import java.util.*;
 
 public class Problem1112 {
     public static void main(String[] args) {
         int[] arr1 = {33,22,48,4,39,36,41,47,15,45};
         int[] arr2 = {22,33,48,4};
-        System.out.println(Arrays.toString(relativeSortArray(arr1,arr2)));
+        System.out.println(Arrays.toString(relativeSortArray2(arr1,arr2)));
 
     }
     public static int[] relativeSortArray(int[] arr1, int[] arr2) {
@@ -43,22 +41,38 @@ public class Problem1112 {
     // second approach
     public static int[] relativeSortArray2(int[] arr1, int[] arr2){
         int[] temp = new int[arr1.length];
-        // insert all the element and put in the temp array
+        // insert all the element  in the temp array
         int index = 0;
         for (int i = 0; i < arr2.length; i++) {
-            int j = 0;
-            while(j< arr1.length){
-                if(arr1[j] == arr2[index]){
-                    temp[index] = arr1[j];
-                    index++;
-                    j++;
-                }
-                else{
-                    j++;
+            for (int j = 0; j < arr1.length; j++) {
+                if (arr1[j] == arr2[i]) {
+                    temp[index++] = arr1[j];
                 }
             }
+
         }
-        Queue<Integer> check = new ArrayDeque<>();
+        List<Integer> rest = new ArrayList<>();
+        Set<Integer> arr2Set = new HashSet<>();
+        for (int num : arr2) {
+            arr2Set.add(num);
+        }
+
+        for (int num : arr1) {
+            if (!arr2Set.contains(num)) {
+                rest.add(num);
+            }
+        }
+
+
+        Collections.sort(rest);
+
+
+        for (int num : rest) {
+            temp[index++] = num;
+        }
+
+        return temp;
+
 
 
     }
