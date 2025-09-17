@@ -1,6 +1,8 @@
 package KunalKushwahaAssignment.Sorting.Easy;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Queue;
 
 public class Problem1112 {
     public static void main(String[] args) {
@@ -40,6 +42,24 @@ public class Problem1112 {
 
     // second approach
     public static int[] relativeSortArray2(int[] arr1, int[] arr2){
+        int[] temp = new int[arr1.length];
+        // insert all the element and put in the temp array
+        int index = 0;
+        for (int i = 0; i < arr2.length; i++) {
+            int j = 0;
+            while(j< arr1.length){
+                if(arr1[j] == arr2[index]){
+                    temp[index] = arr1[j];
+                    index++;
+                    j++;
+                }
+                else{
+                    j++;
+                }
+            }
+        }
+        Queue<Integer> check = new ArrayDeque<>();
+
 
     }
 }
