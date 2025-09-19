@@ -1,6 +1,7 @@
 package KunalKushwahaAssignment.Sorting.Easy;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Problem1331 {
     public static void main(String[] args) {
@@ -16,9 +17,13 @@ public class Problem1331 {
         Arrays.sort(temp);
         // now copying the ans ;
         int[] ans = new int[arr.length];
-        int index = 0;
+        HashMap<Integer,Integer> map = new HashMap<>();
+        // finding the index from sorted array
+        for (int i = 0; i < arr.length ; i++) {
+            map.put(arr[i] , searching(temp,arr[i]));
+        }
         for (int i = 0; i < arr.length; i++) {
-            ans[i] = lessNumber(temp , arr[i]) + 1;
+            ans[i] = map.get(arr[i]);
         }
         return ans;
     }
@@ -29,6 +34,9 @@ public class Problem1331 {
         while(start <= end){
             int mid = start + (end - start)/2;
             if(array[mid] == target){
+                if( mid +1 < array.length && array[mid] == array[mid + 1]){
+                    return mid +1;
+                }
                 return mid;
             }
             else if(array[mid] < target){
@@ -40,4 +48,25 @@ public class Problem1331 {
         }
         return -1;
     }
+    public static int searching(int[] array, int target) {
+        int left = 0;
+        int right = array.length - 1;
+        int result = -1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (array[mid] == target) {
+                result = mid;
+                right = mid - 1;
+            } else if (array[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        return result+1;
+    }
+
 }
