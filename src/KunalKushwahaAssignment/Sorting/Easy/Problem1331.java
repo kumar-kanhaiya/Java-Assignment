@@ -18,10 +18,13 @@ public class Problem1331 {
         // now copying the ans ;
         int[] ans = new int[arr.length];
         HashMap<Integer,Integer> map = new HashMap<>();
-        // finding the index from sorted array
-        for (int i = 0; i < arr.length ; i++) {
-            map.put(arr[i] , searching(temp,arr[i]));
+        int rank =1;
+        for(int num : temp){
+            if(!map.containsKey(num)){
+                map.put(num , rank++);
+            }
         }
+
         for (int i = 0; i < arr.length; i++) {
             ans[i] = map.get(arr[i]);
         }
@@ -68,5 +71,6 @@ public class Problem1331 {
 
         return result+1;
     }
+
 
 }
