@@ -10,10 +10,8 @@ public class Problem1331 {
 
     }
     public static int[] arrayRankTransform(int[] arr) {
-        int[] temp = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            temp[i] = arr[i];
-        }
+        int[] temp ;
+        temp = arr.clone();
         Arrays.sort(temp);
         // now copying the ans ;
         int[] ans = new int[arr.length];
