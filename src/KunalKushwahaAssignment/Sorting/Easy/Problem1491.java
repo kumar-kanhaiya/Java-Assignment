@@ -8,7 +8,7 @@ public class Problem1491 {
         System.out.println(average(array));
 
     }
-    public static double average(int[] salary) {
+    public static   double average(int[] salary) {
         Arrays.sort(salary);
         if(salary.length <2){
             return 0;
