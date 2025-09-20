@@ -6,7 +6,7 @@ import java.util.HashSet;
 
 public class Problem1636 {
     public static void main(String[] args) {
-        int[] array = {4,2,8,6,3,9,7};
+        int[] array = {1,1,2,2,2,3};
         decreasing(array);
         System.out.println(Arrays.toString(array));
 
@@ -20,15 +20,29 @@ public class Problem1636 {
             set.add(nums[i]);
         }
         int[] uniqueNumber = new int[set.size()];
+        HashMap<Integer , Integer> map = new HashMap<>();
+
         int index =0;
         for(int num : set){
             uniqueNumber[index] = num;
+            map.put(num,occurence(nums,num));
             index++;
         }
+        sortUniqueNumbers(uniqueNumber,map);
+
+        int k = 0;
+        for (int num : uniqueNumber){
+            int freq = map.get(num);
+            for (int j = 0; j < freq; j++) {
+                ans[k] = num;
+                k++;
+            }
+        }
+
         return ans;
     }
     public static int occurence(int[] array , int target ){
-        HashMap<Integer , Integer> map = new HashMap<>();
+
         int count = 0;
         for (int i = 0; i < array.length ; i++) {
             if(array[i] == target){
@@ -61,4 +75,27 @@ public class Problem1636 {
             }
         }
     }
+    public static void sortUniqueNumbers(int[] uniqueNumber, HashMap<Integer,Integer> map){
+        for (int i = 0; i < uniqueNumber.length; i++) {
+            int j = i;
+            while (j > 0) {
+                int prev = uniqueNumber[j-1];
+                int curr = uniqueNumber[j];
+
+                int freqPrev = map.get(prev);
+                int freqCurr = map.get(curr);
+
+
+                if (freqPrev > freqCurr) {
+                    swap(uniqueNumber, j-1, j);
+                }
+
+                else if (freqPrev == freqCurr && prev < curr) {
+                    swap(uniqueNumber, j-1, j);
+                }
+                j--;
+            }
+        }
+    }
+
 }
