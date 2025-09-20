@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 public class Problem1636 {
     public static void main(String[] args) {
+        int[] array = {4,2,8,6,3,9,7};
+        decreasing(array);
+        System.out.println(Arrays.toString(array));
 
     }
     public static int[] frequencySort(int[] nums) {
@@ -20,13 +23,27 @@ public class Problem1636 {
         return count;
     }
     public static void increasingSort(int[] array){
-        for (int i = 0; i < ; i++) {
-
+        for (int i = 0; i <= array.length -1; i++) {
+            int j = i;
+            while(j>0 && array[j-1] > array[j]){
+                swap(array , j-1 , j);
+                j--;
+            }
         }
     }
     public static void swap(int[] array , int first , int second){
         int temp = array[first];
         array[first] = array[second];
         array[second] = temp;
+    }
+
+    public static void decreasing(int[] array ){
+        for (int i = 0; i < array.length ; i++) {
+            int j = i;
+            while(j>0 && array[j-1]<array[j]){
+                swap(array,j-1,j);
+                j--;
+            }
+        }
     }
 }
