@@ -1,6 +1,8 @@
 package KunalKushwahaAssignment.Sorting.Easy;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class Problem1636 {
     public static void main(String[] args) {
@@ -10,10 +12,23 @@ public class Problem1636 {
 
     }
     public static int[] frequencySort(int[] nums) {
-
-
+        int[] ans = new int[nums.length];
+        // different frequency -> increasing order
+        // same frequency -> decreasing order
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < nums.length ; i++) {
+            set.add(nums[i]);
+        }
+        int[] uniqueNumber = new int[set.size()];
+        int index =0;
+        for(int num : set){
+            uniqueNumber[index] = num;
+            index++;
+        }
+        return ans;
     }
     public static int occurence(int[] array , int target ){
+        HashMap<Integer , Integer> map = new HashMap<>();
         int count = 0;
         for (int i = 0; i < array.length ; i++) {
             if(array[i] == target){
