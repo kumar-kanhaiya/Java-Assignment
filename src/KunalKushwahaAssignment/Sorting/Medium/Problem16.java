@@ -17,16 +17,19 @@ public class Problem16 {
             int k = array.length-1;
             while(j < k){
                 int check = array[i] + array[j] + array[k];
+
+                closest = close(closest, check, target);
+
                 if(check == target){
                     return check;
                 }
                 else if(check < target){
-                    closest = Math.max(closest,check);
+//                    closest = Math.max(closest,check);
                     j++;
 
                 }
                 else {
-                    closest  = Math.min(closest,check);
+//                    closest  = Math.min(closest,check);
                     k--;
 
 
@@ -38,17 +41,11 @@ public class Problem16 {
         return closest;
 
     }
-//    public static int sum(int[] array){
-//        int sum = 0;
-//        for(int element : array){
-//            sum += element;
-//        }
-//        return sum;
-//    }
-//    public static int close(int left , int right , int target){
-//        if(left > 0  && right > 0 && Math.abs(left - target) < Math.abs(right - target)){
-//            return left;
-//        }
-//        return right;
-//    }
+//
+    public static int close(int left , int right , int target){
+        if( Math.abs(left - target) < Math.abs(right - target)){
+            return left;
+        }
+        return right;
+    }
 }
