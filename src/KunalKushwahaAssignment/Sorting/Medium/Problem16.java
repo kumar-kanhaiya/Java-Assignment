@@ -11,40 +11,44 @@ public class Problem16 {
 
     public static int threeSumClosest(int[] array, int target) {
         Arrays.sort(array);
-        int left = 0;
-        int right = sum(array) ;
+        int closest = array[0] + array[1] + array[2];
         for (int i = 0; i < array.length ; i++) {
             int j = i+1;
             int k = array.length-1;
-            while(j< k){
+            while(j < k){
                 int check = array[i] + array[j] + array[k];
-                if(check <= target){
-                    left = Math.max(left,check);
+                if(check == target){
+                    return check;
+                }
+                else if(check < target){
+                    closest = Math.max(closest,check);
                     j++;
-                    k--;
+
                 }
                 else {
-                    right  = Math.min(right,check);
-                    j++;
+                    closest  = Math.min(closest,check);
+                    k--;
+
+
                 }
 
 
             }
         }
-        return close(left, right, target);
+        return closest;
 
     }
-    public static int sum(int[] array){
-        int sum = 0;
-        for(int element : array){
-            sum += element;
-        }
-        return sum;
-    }
-    public static int close(int left , int right , int target){
-        if(left > 0  && right > 0 && Math.abs(left - target) < Math.abs(right - target)){
-            return left;
-        }
-        return right;
-    }
+//    public static int sum(int[] array){
+//        int sum = 0;
+//        for(int element : array){
+//            sum += element;
+//        }
+//        return sum;
+//    }
+//    public static int close(int left , int right , int target){
+//        if(left > 0  && right > 0 && Math.abs(left - target) < Math.abs(right - target)){
+//            return left;
+//        }
+//        return right;
+//    }
 }
