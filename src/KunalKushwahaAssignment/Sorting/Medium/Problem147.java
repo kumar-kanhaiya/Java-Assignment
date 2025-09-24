@@ -2,9 +2,10 @@ package KunalKushwahaAssignment.Sorting.Medium;
 
 public class Problem147 {
     public static void main(String[] args) {
-        ListNode node = new ListNode(4,
-                new ListNode(2, new ListNode(1, new ListNode(3))));
+        ListNode node = new ListNode(4, new ListNode(2, new ListNode(1, new ListNode(3))));
         System.out.println(insertionSortList(node));
+        displayListNode(node);
+        swap(node,node.next);
         displayListNode(node);
 
     }
@@ -26,31 +27,31 @@ public class Problem147 {
       }
 
       public static void displayListNode(ListNode node){
+        ListNode current = node;
           System.out.print("Start");
-        while(node.next != null){
-            System.out.print(node.val + " -> ");
-            node = node.next;
+        while(current != null){
+            System.out.print(current.val + " -> ");
+            current = current.next;
         }
           System.out.println("End");
       }
 
     public static ListNode insertionSortList(ListNode node) {
-        while(node.next != null) {
-            if (node.val > node.next.val) {
-                    swap(node, node.next);
-                    node = node.next;
-            }
-            else {
-                    node = node.next;
-            }
+        ListNode current = node;
+        while(current != null) {
+                if (current.next != null && current.val > current.next.val) {
+                    swap(current, current.next);
+                }
+                current = current.next;
 
         }
         return node;
     }
     public static void swap(ListNode first , ListNode second ){
         ListNode temp = first;
-        first.val = second.val;
-        second.val = temp.val;
+        first = second;
+        second = temp;
+
 
     }
 
