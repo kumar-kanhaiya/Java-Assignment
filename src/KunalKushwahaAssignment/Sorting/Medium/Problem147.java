@@ -37,20 +37,25 @@ public class Problem147 {
       }
 
     public static ListNode insertionSortList(ListNode node) {
+        ListNode check = new ListNode(0);
         ListNode current = node;
-        while(current != null) {
-                if (current.next != null && current.val > current.next.val) {
-                    swap(current, current.next);
-                }
-                current = current.next;
+        while(current != null){
+            ListNode next = current.next;
+            ListNode prev = check;
+            while(next!= null && prev.next.val < current.val){
+                prev = prev.next;
+            }
+            current.next = prev.next;
+            prev.next = current;
 
+            current = next;
         }
-        return node;
+        return check.next;
     }
     public static void swap(ListNode first , ListNode second ){
-        ListNode temp = first;
-        first = second;
-        second = temp;
+        int temp = first.val;
+        first.val = second.val;
+        second.val = temp;
 
 
     }
