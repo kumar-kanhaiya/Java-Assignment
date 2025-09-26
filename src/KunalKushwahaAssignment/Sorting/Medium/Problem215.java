@@ -3,6 +3,7 @@ package KunalKushwahaAssignment.Sorting.Medium;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.PriorityQueue;
 
 public class Problem215 {
     public static void main(String[] args) {
@@ -55,6 +56,16 @@ public class Problem215 {
         return  map.get(k);
     }
 
-    public static int
+    public static int findKthLargest(int[] array , int k ){
+
+        PriorityQueue<Integer> heap = new PriorityQueue<>();
+        for(int num : array){
+            heap.add(num);
+            if(heap.size() > k){
+                heap.poll();
+            }
+        }
+        return heap.peek();
+    }
 
 }
