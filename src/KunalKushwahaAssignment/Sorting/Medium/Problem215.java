@@ -1,6 +1,7 @@
 package KunalKushwahaAssignment.Sorting.Medium;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class Problem215 {
@@ -11,14 +12,11 @@ public class Problem215 {
     }
 
     // this problem is done without using sorting algo
-    public static int findKthLargest(int[] nums, int k) {
+    public static  int findKthLargest1(int[] nums, int k) {
         // remove duplicate element
-        HashSet<Integer> set = new HashSet<>();
-        for (int i = 0; i < nums.length ; i++) {
-            set.add(nums[i]);
-        }
+
         ArrayList<Integer> list = new ArrayList<>();
-        for(int element : set){
+        for(int element : nums){
             list.add(element);
         }
         while(k != 1){
@@ -31,7 +29,7 @@ public class Problem215 {
         return list.get(max);
 
     }
-    public static int maxIndex(ArrayList<Integer> list ){
+    public  static int maxIndex(ArrayList<Integer> list ){
         int max = 0;
         for (int i = 0; i < list.size() ; i++) {
             if(list.get(i) > list.get(max)){
@@ -40,4 +38,23 @@ public class Problem215 {
         }
         return max;
     }
+    public static int findKthLargest2(int[] arraay , int k){
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int element : arraay){
+            list.add(element);
+        }
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        int i = 1;
+        while(i <= k){
+            int max = maxIndex(list);
+            map.put(i,list.get(max));
+            list.remove(max);
+            i++;
+        }
+        return  map.get(k);
+    }
+
+    public static int
+
 }
