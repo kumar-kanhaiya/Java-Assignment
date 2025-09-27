@@ -25,4 +25,9 @@ public class Problem41 {
         return array.length + 1;
     }
 
+    public void swap(int[] array , int first , int second ){
+        int temp = array[first];
+        array[first] = array[second];
+        array[second] = temp;
+    }
 }
