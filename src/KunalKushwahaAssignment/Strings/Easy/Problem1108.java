@@ -1,4 +1,4 @@
-package KunalKushwahaAssignment.Strings;
+package KunalKushwahaAssignment.Strings.Easy;
 
 public class Problem1108 {
     public static void main(String[] args) {

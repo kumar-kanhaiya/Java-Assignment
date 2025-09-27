@@ -1,4 +1,4 @@
-package KunalKushwahaAssignment.Strings;
+package KunalKushwahaAssignment.Strings.Easy;
 
 import java.util.*;
 
