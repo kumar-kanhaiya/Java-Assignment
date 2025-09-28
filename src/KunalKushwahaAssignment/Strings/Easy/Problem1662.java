@@ -15,6 +15,8 @@ public class Problem1662 {
         String second = String.join("",word2);
         return first.equals(second);
     }
+
+
     public static boolean arrayStringsAreEqual2(String[] word1, String[] word2) {
         if(word1.length != word2.length){
             return false;
