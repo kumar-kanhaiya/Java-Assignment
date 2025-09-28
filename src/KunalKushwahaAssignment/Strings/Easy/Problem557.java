@@ -17,16 +17,36 @@ public class Problem557 {
         for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
             stack.push(ch);
-            int j = i;
-            while(j< s.length() && s.charAt(j) != ' '){
-                stack.add(s.charAt(j));
-                j++;
-            }
-            i=j;
-            for (int k = 0; k < stack.size(); k++) {
-                ans += stack.pop();
+            if(ch== ' ' || i== s.length() - 1){
+                while(!stack.isEmpty()){
+                    if(stack.peek() == ' '){
+
+                        String demo = "" +stack.pop();
+                        continue;
+                    }
+
+                    ans = ans + stack.pop();
+                }
+                if(i != s.length() -1) {
+                    ans += " ";
+                }
             }
         }
         return ans;
+    }
+
+
+    public String reverseWords2(String s) {
+        String[] words = s.split(" ");
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < words.length; i++) {
+            StringBuilder sb = new StringBuilder(words[i]);
+            result.append(sb.reverse());
+            if (i != words.length - 1) {
+                result.append(" ");
+            }
+        }
+
+        return result.toString();
     }
 }
