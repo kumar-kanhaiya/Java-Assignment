@@ -10,7 +10,12 @@ public class Problem1662 {
         System.out.println(arrayStringsAreEqual(word1,word2));
 
     }
-    public static boolean arrayStringsAreEqual(String[] word1, String[] word2) {
+    public static boolean arrayStringsAreEqual(String[] word1, String[] word2){
+        String first = String.join("",word1);
+        String second = String.join("",word2);
+        return first.equals(second);
+    }
+    public static boolean arrayStringsAreEqual2(String[] word1, String[] word2) {
         if(word1.length != word2.length){
             return false;
         }
