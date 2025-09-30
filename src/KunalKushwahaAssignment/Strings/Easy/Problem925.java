@@ -7,14 +7,14 @@ public class Problem925 {
 
     }
 
-    public static boolean isLongPressedName(String name, String typed) {
-        for (int i = 0; i < name.length() ; i++) {
-            if(occurence(typed,typed.charAt(i)) >= occurence(name,name.charAt(i))){
-
-            }
-        }
-
-    }
+//    public static boolean isLongPressedName(String name, String typed) {
+//        for (int i = 0; i < name.length() ; i++) {
+//            if(occurence(typed,typed.charAt(i)) >= occurence(name,name.charAt(i))){
+//
+//            }
+//        }
+//
+//    }
 
     public static int occurence(String name , char target){
         int ans = 0;
