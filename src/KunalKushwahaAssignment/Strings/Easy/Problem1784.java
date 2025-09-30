@@ -8,6 +8,8 @@ public class Problem1784 {
         System.out.println(Integer.toBinaryString(name));
         int binary = Integer.parseInt(Integer.toBinaryString(name));
         System.out.println(binary);
+        String s = "1101";
+        System.out.println(checkOnesSegment2(s));
 
     }
 
@@ -31,5 +33,15 @@ public class Problem1784 {
             }
         }
         return ans;
+    }
+
+    // second approach
+    public static boolean checkOnesSegment2(String s){
+        for (int i = 0; i < occurence(s); i++) {
+            if(  s.charAt(i) != '1'){
+                return false;
+            }
+        }
+        return true;
     }
 }
