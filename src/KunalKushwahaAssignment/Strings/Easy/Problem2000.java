@@ -2,7 +2,7 @@ package KunalKushwahaAssignment.Strings.Easy;
 
 public class Problem2000 {
     public static void main(String[] args) {
-        String word = "xyxzxe";
+        String word = "abcd";
         System.out.println(reversePrefix(word,'z'));
 
     }
@@ -21,7 +21,9 @@ public class Problem2000 {
             }
             index++;
         }
-        builder = builder.reverse();
+        if(index != word.length() || word.charAt(word.length()-1) == ch) {
+            builder = builder.reverse();
+        }
         while(index < word.length()){
             builder.append(word.charAt(index));
             index++;
