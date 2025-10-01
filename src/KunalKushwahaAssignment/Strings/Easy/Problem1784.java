@@ -44,4 +44,8 @@ public class Problem1784 {
         }
         return true;
     }
+
+    public boolean checkOnesSegment3(String s) {
+        return !s.contains("01");
+    }
 }
