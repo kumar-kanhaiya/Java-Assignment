@@ -61,23 +61,24 @@ public class Problem1871 {
         if(s.charAt(n-1) == '1'){
             return false;
         }
+
         boolean[] dp = new boolean[n];
-        char[] ch = s.toCharArray();
+        dp[0] = true;
 
-        dp[0] = ch[0] == '0';
         int reachable = 0;
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i < n; i++) {
 
-            if(i>=min){
-                reachable += dp[i-min] ? 1 : 0;
+            if (i - min >= 0) {
+                reachable += dp[i - min] ? 1 : 0;
             }
 
-            if(i > max){
-                reachable -= dp[i-max - 1] ? 1 :0;
+            if (i - max - 1 >= 0) {
+                reachable -= dp[i - max - 1] ? 1 : 0;
             }
 
-            dp[i] = (reachable>0 && ch[i] == '0');
+            dp[i] = (reachable > 0 && s.charAt(i) == '0');
         }
-        return dp[n-1];
+
+        return dp[n - 1];
     }
 }
