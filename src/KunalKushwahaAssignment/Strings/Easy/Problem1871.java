@@ -1,9 +1,12 @@
 package KunalKushwahaAssignment.Strings.Easy;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Problem1871 {
     public static void main(String[] args) {
         String s = "011010";
-        System.out.println(canReach(s,2,3));
+        System.out.println(canReach2(s,2,3));
 
     }
 
@@ -23,6 +26,28 @@ public class Problem1871 {
         }
         if(index == s.length()-1){
             return true;
+        }
+        return false;
+    }
+
+    // 2nd approach
+    public static boolean canReach2(String s , int minJump , int maxJump){
+        Queue<Integer> queue = new LinkedList<>();
+        queue.offer(0);
+        for (int i = 0; i < s.length(); i++) {
+            if(s.charAt(i)=='0'){
+
+                if(queue.isEmpty()){
+                    return false;
+                }
+                int prev = queue.peek();
+                if(prev+maxJump >= i && prev + minJump <=i){
+                    queue.offer(i);
+                    if(i ==s.length()-1){
+                        return true;
+                    }
+                }
+            }
         }
         return false;
     }
