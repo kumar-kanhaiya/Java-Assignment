@@ -2,8 +2,9 @@ package KunalKushwahaAssignment.Strings.Medium;
 
 public class Problem1616 {
     public static void main(String[] args) {
-        String str = "ulaalu";
-        System.out.println(isPalindrome(str));
+        String a = "aejbaalflrmkswrydwdkdwdyrwskmrlfqizjezd";
+        String b = "uvebspqckawkhbrtlqwblfwzfptanhiglaabjea";
+        System.out.println(checkPalindromeFormation(a,b));
 
     }
 
@@ -11,55 +12,28 @@ public class Problem1616 {
         if(a.length() == 1 && b.length() == 1){
             return true;
         }
-        String aSuffix = "";
-        String bSuffix = "";
-        String aPrefix = "";
-        String bPrefix = "";
-
-        int index = Math.max(findIndex(a,b,true) , findIndex(a,b,false));
-
-        for (int i = 0; i < index; i++) {
-            aPrefix += a.charAt(i);
-            bPrefix += b.charAt(i);
-        }
-        for (int i = index; i <a.length() ; i++) {
-            aSuffix += a.charAt(i);
-            bSuffix += b.charAt(i);
-        }
-
-        return (isPalindrome(aPrefix+bSuffix) || isPalindrome(bPrefix + aSuffix));
+        return check(a,b) || check(b,a);
 
     }
 
-    public static boolean isPalindrome(String str){
-        String rev = "";
-        for (int i = 0; i < str.length() ;i++) {
-            rev = str.charAt(i) + rev;
+    public static boolean isPalindrome(String s, int left, int right) {
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
         }
-        return rev.equals(str);
+        return true;
     }
 
-    public static int findIndex(String a , String b , boolean check ){
-        if(check){
-            for (int i = 0; i < a.length() ; i++) {
-                if(a.charAt(i) == b.charAt(b.length() - i -1)){
-                    continue;
-                }
-                else{
-                    return i;
-                }
-            }
+
+    private static boolean check(String a, String b) {
+        int l = 0, r = a.length() - 1;
+        while (l < r && a.charAt(l) == b.charAt(r)) {
+            l++;
+            r--;
         }
-        else{
-            for (int i = 0; i < b.length(); i++) {
-                if(b.charAt(i) == a.charAt(a.length() - i - 1)){
-                    continue;
-                }
-                else{
-                    return i;
-                }
-            }
-        }
-        return -1;
+        return isPalindrome(a, l, r) || isPalindrome(b, l, r);
     }
 }
