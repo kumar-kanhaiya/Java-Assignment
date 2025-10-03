@@ -1,4 +1,4 @@
-package KunalKushwahaAssignment.Strings.Easy;
+package KunalKushwahaAssignment.Strings.Medium;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -6,7 +6,7 @@ import java.util.Queue;
 public class Problem1871 {
     public static void main(String[] args) {
         String s = "011010";
-        System.out.println(canReach2(s,2,3));
+        System.out.println(canReach3(s,2,3));
 
     }
 
