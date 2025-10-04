@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class Problem1668 {
     public static void main(String[] args) {
-        String s = "aaaba aaaba aabaaaaba aaaba aaaba aaaba";
-        System.out.println(maxRepeating(s,"aaaba"));
+        String s = "aaabaaaabaaabaaaabaaaabaaaabaaaaba";
+        System.out.println(maxRepeating2(s,"aaaba"));
 
 
     }
@@ -26,5 +26,17 @@ public class Problem1668 {
             }
         }
         return ans;
+    }
+
+    // 2nd approach
+    public static int maxRepeating2(String sequence, String word) {
+        int count = 0;
+        String temp = word;
+
+        while (sequence.contains(temp)) {
+            count++;
+            temp += word;
+        }
+        return count;
     }
 }
