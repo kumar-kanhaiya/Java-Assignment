@@ -9,16 +9,18 @@ public class Problem925 {
     }
 
     // problem is done by using two pointer approach
-    public static boolean isLongPressedName(String name, String typed) {
+    public  boolean isLongPressedName(String name, String typed) {
         int index1 = 0;
         int index2 = 0;
 
         while(index1 < name.length() ){
-            if(name.charAt(index1) == typed.charAt(index2)){
+            if(index1 < name.length() && index2 < typed.length()
+                    && name.charAt(index1) == typed.charAt(index2)){
                 index2++;
                 index1++;
             }
-            else if(index1 >0 && name.charAt(index1-1) == typed.charAt(index2) ){
+            else if(index1 >0 && index1 < name.length() && index2 < typed.length()
+                    && name.charAt(index1-1) == typed.charAt(index2) ){
                 index2++;
             }
             else{
