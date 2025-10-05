@@ -7,9 +7,25 @@ public class Problem925 {
 
     }
 
-//    public static boolean isLongPressedName(String name, String typed) {
-//
-//    }
+    // problem is done by using two pointer approach
+    public static boolean isLongPressedName(String name, String typed) {
+        int index1 = 0;
+        int index2 = 0;
+
+        while(index1 < name.length()){
+            if(name.charAt(index1) == typed.charAt(index2)){
+                index2++;
+                index1++;
+            }
+            else if(index1 >0 && name.charAt(index1-1) == typed.charAt(index2) ){
+                index2++;
+            }
+            else{
+                return false;
+            }
+        }
+        return true;
+    }
 
     public static int occurence(String name , char target){
         int ans = 0;
