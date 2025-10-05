@@ -3,7 +3,8 @@ package KunalKushwahaAssignment.Strings.Easy;
 public class Problem925 {
     public static void main(String[] args) {
         String name = "alex";
-        String typed = "aaleex";
+        String typed = "aaleexa";
+        System.out.println(isLongPressedName(name,typed));
 
     }
 
@@ -12,7 +13,7 @@ public class Problem925 {
         int index1 = 0;
         int index2 = 0;
 
-        while(index1 < name.length()){
+        while(index1 < name.length() ){
             if(name.charAt(index1) == typed.charAt(index2)){
                 index2++;
                 index1++;
@@ -22,6 +23,19 @@ public class Problem925 {
             }
             else{
                 return false;
+            }
+        }
+
+        if(index1< name.length()){
+            return false;
+        }
+
+        while(index2 < typed.length()){
+            if(typed.charAt(index2- 1) != typed.charAt(index2)){
+                return false;
+            }
+            else{
+                index2++;
             }
         }
         return true;
