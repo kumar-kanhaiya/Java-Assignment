@@ -11,12 +11,22 @@ public class Problem556 {
 
     }
 
-//    public static int nextGreaterElement(int n) {
-//        String[] array = StringForm(n);
-//        for (int i = 0; i < array.length ; i++) {
-//
-//        }
-//    }
+    public static int nextGreaterElement(int n) {
+        String[] array = StringForm(n);
+        int pivot = pivot(array);
+        if(pivot == -1){
+            return -1;
+        }
+        int max = array.length - 1;
+        for (int i = array.length - 1; i >= pivot ; i--) {
+            if((Integer.parseInt(array[i]) > Integer.parseInt(array[max]))){
+                max = i;
+            }
+        }
+        swap(array,pivot,max);
+
+
+    }
     public static String[] StringForm(int number){
         String check = number + "";
         String[] array = check.split("");
@@ -33,6 +43,12 @@ public class Problem556 {
             }
         }
         return -1;
+    }
+
+    public static void swap(String[] array , int first , int second){
+        String temp = array[first];
+        array[first] = array[second];
+        array[second] = temp;
     }
 
 }
