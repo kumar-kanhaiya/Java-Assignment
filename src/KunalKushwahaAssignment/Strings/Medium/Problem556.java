@@ -17,14 +17,24 @@ public class Problem556 {
         if(pivot == -1){
             return -1;
         }
-        int max = array.length - 1;
-        for (int i = array.length - 1; i >= pivot ; i--) {
-            if((Integer.parseInt(array[i]) > Integer.parseInt(array[max]))){
+        int max =  - 1;
+        for (int i = array.length - 1; i >pivot ; i--) {
+            if((Integer.parseInt(array[i]) > Integer.parseInt(array[pivot]))){
                 max = i;
+                break;
             }
         }
         swap(array,pivot,max);
 
+        reverse(array , pivot+1 , array.length -1);
+
+        StringBuilder ans = new StringBuilder();
+        for(String s : array){
+            ans.append(s);
+        }
+
+        long finalans = Long.parseLong(ans.toString());
+        return finalans>Integer.MAX_VALUE ? -1 : (int) finalans;
 
     }
     public static String[] StringForm(int number){
@@ -49,6 +59,14 @@ public class Problem556 {
         String temp = array[first];
         array[first] = array[second];
         array[second] = temp;
+    }
+
+    public static void reverse(String[] arr, int left, int right) {
+        while (left < right) {
+            swap(arr, left, right);
+            left++;
+            right--;
+        }
     }
 
 }
