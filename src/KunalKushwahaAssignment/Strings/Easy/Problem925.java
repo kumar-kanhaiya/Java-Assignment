@@ -9,7 +9,7 @@ public class Problem925 {
     }
 
     // problem is done by using two pointer approach
-    public  boolean isLongPressedName(String name, String typed) {
+    public static boolean isLongPressedName(String name, String typed) {
         int index1 = 0;
         int index2 = 0;
 
