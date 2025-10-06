@@ -4,32 +4,35 @@ import java.util.Arrays;
 
 public class Problem556 {
     public static void main(String[] args) {
-        int n = 985;
-        System.out.println(sortNumber(n));
+        int n = 12443322;
+        String[] arr = StringForm(n);
+        System.out.println(pivot(arr));
 
 
     }
 
-    public static int nextGreaterElement(int n) {
-        int number = sortNumber(n);
-        int ans =
-        return 0;
-
-    }
-    public static int sortNumber(int number){
+//    public static int nextGreaterElement(int n) {
+//        String[] array = StringForm(n);
+//        for (int i = 0; i < array.length ; i++) {
+//
+//        }
+//    }
+    public static String[] StringForm(int number){
         String check = number + "";
         String[] array = check.split("");
-        int[] arr = new int[array.length];
-        for (int i = 0; i < arr.length ; i++) {
-            arr[i] = Integer.parseInt(array[i]);
-        }
-        Arrays.sort(arr);
-        int index = 0;
-        int num = 0;
-        while(index < arr.length){
-            num = num*10 + arr[index];
-            index++;
-        }
-        return num;
+        return array;
+
     }
+
+    public static int pivot(String[] arr) {
+        for (int i = arr.length - 2; i >= 0; i--) {
+            int current = Integer.parseInt(arr[i]);
+            int next = Integer.parseInt(arr[i + 1]);
+            if (current < next) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
 }
