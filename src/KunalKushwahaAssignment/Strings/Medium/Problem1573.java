@@ -3,6 +3,7 @@ package KunalKushwahaAssignment.Strings.Medium;
 public class Problem1573 {
     public static void main(String[] args) {
         String s = "10101";
+        System.out.println(numWays(s));
 
     }
 
