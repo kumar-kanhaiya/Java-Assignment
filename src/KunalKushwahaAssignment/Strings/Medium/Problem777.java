@@ -10,7 +10,7 @@ public class Problem777 {
     }
 
     // 1st approach
-    public static boolean canTransform(String start, String result) {
+    public static boolean canTransform2(String start, String result) {
         if(start.length() < 2 || result.length() < 2
                 || start.length() != result.length()){
             return false;
@@ -53,5 +53,52 @@ public class Problem777 {
         System.out.println(first);
         System.out.println(second);
         return first.toString().equals(second.toString());
+    }
+
+    //2nd approach
+    public static boolean canTransform(String start , String result){
+        if(start.length() <2 || result.length() <2
+                || start.length() != result.length()){
+            return false;
+        }
+
+        // by removing all 'X'
+        String first = start.replace("X","");
+        String second = result.replace("X","");
+
+        if(!first.equals(second)){
+            return false;
+        }
+
+        int n = start.length();
+
+        int i = 0 ,j  = 0;
+        while( i<n && j<n){
+
+            while(i<n && start.charAt(i)=='X'){
+                i++;
+            }
+            while(j<n && start.charAt(j)=='X'){
+                j++;
+            }
+
+            if(i==n || j== n){
+                break;
+            }
+
+            char c = start.charAt(i);
+
+            if(c == 'L' && i < j){
+                return false;
+            }
+            if(c == 'R' && i>j){
+                return false;
+            }
+            i++;
+            j++;
+
+        }
+        return true;
+
     }
 }
