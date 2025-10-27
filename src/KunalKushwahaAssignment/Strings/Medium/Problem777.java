@@ -2,8 +2,8 @@ package KunalKushwahaAssignment.Strings.Medium;
 
 public class Problem777 {
     public static void main(String[] args) {
-        String start = "RXXLRXRXL";
-        String result = "XRLXXRRLX";
+        String start = "LXXLXRLXXL";
+        String result = "XLLXRXLXLX";
 
         System.out.println(canTransform(start,result));
 
@@ -13,6 +13,10 @@ public class Problem777 {
     public static boolean canTransform2(String start, String result) {
         if(start.length() < 2 || result.length() < 2
                 || start.length() != result.length()){
+            return false;
+        }
+        if((start.charAt(0) == 'L' && result.charAt(0) == 'X')
+        || (start.charAt(0) == 'R' && result.charAt(0) == 'X')){
             return false;
         }
 
@@ -62,6 +66,11 @@ public class Problem777 {
             return false;
         }
 
+//        if((start.charAt(0) == 'L' && result.charAt(0) == 'X')
+//                || (start.charAt(0) == 'R' && result.charAt(0) == 'X')){
+//            return false;
+//        }
+
         // by removing all 'X'
         String first = start.replace("X","");
         String second = result.replace("X","");
@@ -78,7 +87,7 @@ public class Problem777 {
             while(i<n && start.charAt(i)=='X'){
                 i++;
             }
-            while(j<n && start.charAt(j)=='X'){
+            while(j<n && result.charAt(j)=='X'){
                 j++;
             }
 
@@ -98,7 +107,16 @@ public class Problem777 {
             j++;
 
         }
-        return true;
+
+        // check for remaining
+        while(i<n && start.charAt(i) == 'X'){
+            i++;
+        }
+        while(j<n && result.charAt(j) == 'X'){
+            j++;
+        }
+
+        return i==n && j==n;
 
     }
 }
