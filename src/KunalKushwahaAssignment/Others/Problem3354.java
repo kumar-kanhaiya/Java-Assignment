@@ -1,9 +1,11 @@
 package KunalKushwahaAssignment.Others;
 
+import java.util.Arrays;
+
 public class Problem3354 {
     public static void main(String[] args) {
-        int[] array = {2,3,4,0,4,1,0};
-        System.out.println(leftSide(array,3));
+        int[] array = {1,0,2,0,3};
+        System.out.println(countValidSelections1(array));
 
     }
 
@@ -13,7 +15,7 @@ public class Problem3354 {
         //finding the zero index ;
         for(int i = 0 ; i < nums.length ; i++){
             if(nums[i] == 0){
-                ans += helper(nums,i);
+                ans += helper(Arrays.copyOf(nums,nums.length),i);
             }
         }
         return ans;
@@ -21,16 +23,13 @@ public class Problem3354 {
 
     public static int helper(int[] array , int index){
 
-        if(rightSide(array,index)){
-            return 1;
-        }
-        else if(leftSide(array,index)){
-            return 1;
-        }
-        else if (leftSide(array,index) && rightSide(array,index)){
-            return 2;
-        }
+        boolean left = leftSide(Arrays.copyOf(array, array.length), index);
+        boolean right = rightSide(Arrays.copyOf(array, array.length), index);
+
+        if (left && right) return 2;
+        else if (left || right) return 1;
         return 0;
+
 
     }
 
@@ -39,11 +38,10 @@ public class Problem3354 {
         while(true){
             int left = index-1 ;
             int right = index +1;
-            while(array[left] == 0){
+            while (left >= 0 && array[left] == 0) {
                 left--;
-
             }
-            while(array[right] == 0 && right < array.length){
+            while(right < array.length && array[right] == 0 ){
                 right++;
             }
             if(left >= 0){
@@ -77,8 +75,68 @@ public class Problem3354 {
 
     public static boolean rightSide(int[] array , int index){
 
+        while(true){
+            int right = index +1;
+            int left = index -1 ;
+
+            while(right < array.length && array[right] == 0 ){
+                right++;
+            }
+            while (left >= 0 && array[left] == 0) {
+                left--;
+            }
+
+            if(right< array.length){
+                array[right]--;
+
+            }
+
+            if(left >= 0){
+                array[left]--;
+
+            }
 
 
+
+            if(array[left] < 0 || array[right] <0){
+                return false;
+            }
+            if( (left == 0 && right == array.length-1)
+                    || (array[left] == 0 && array[right] == 0) ){
+                break;
+            }
+
+        }
+
+        for(int i = 0 ; i < array.length ; i++){
+            if(array[i] != 0){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+    //2nd approach
+    public static int countValidSelections1(int[] nums){
+        int n = nums.length;
+        int totalSum = 0;
+        for (int num : nums) totalSum += num;
+
+        int leftSum = 0;
+        int ans = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == 0) {
+                int rightSum = totalSum - leftSum;
+                if (leftSum == rightSum ||
+                        leftSum + 1 == rightSum) {
+                    ans++;
+                }
+            }
+            leftSum += nums[i];
+        }
+        return ans;
     }
 
 }
