@@ -8,9 +8,9 @@ public class Problem3370 {
 
     public static int smallestNumber(int n) {
         String bit = Integer.toBinaryString(n);
-        int bitValue = numberOfOne(bit);
+//        int bitValue = numberOfOne(bit);
         while(true){
-            if(numberOfOne(Integer.toBinaryString(n)) == bit.length()){
+            if(Integer.bitCount(n) == bit.length()){
                 return n;
             }
             else{

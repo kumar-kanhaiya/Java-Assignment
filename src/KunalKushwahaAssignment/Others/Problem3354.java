@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Problem3354 {
     public static void main(String[] args) {
         int[] array = {1,0,2,0,3};
-        System.out.println(countValidSelections1(array));
+        System.out.println(countValidSelections(array));
 
     }
 
@@ -44,19 +44,19 @@ public class Problem3354 {
             while(right < array.length && array[right] == 0 ){
                 right++;
             }
-            if(left >= 0){
+            if(left >= 0 && array[left] > 1){
                 array[left]--;
 
             }
-            if(right< array.length){
+            if(right< array.length && array[right] > 1){
                 array[right]--;
 
             }
 
 
-            if(array[left] < 0 || array[right] <0){
+            /*if(array[left] < 0 || array[right] <0){
                 return false;
-            }
+            }*/
             if( (left == 0 && right == array.length-1)
                     || (array[left] == 0 && array[right] == 0) ){
                 break;
@@ -86,12 +86,12 @@ public class Problem3354 {
                 left--;
             }
 
-            if(right< array.length){
+            if(right< array.length && array[right] > 1) {
                 array[right]--;
 
             }
 
-            if(left >= 0){
+            if(left >= 0 && array[left] > 1){
                 array[left]--;
 
             }
