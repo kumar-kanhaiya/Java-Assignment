@@ -9,7 +9,7 @@ public class Problem3289 {
 
     }
 
-    public static int[] getSneakyNumbers(int[] nums) {
+    public static int[] getSneakyNumbers1(int[] nums) {
         Arrays.sort(nums);
         int[] ans = new int[2];
         int index = 0;
@@ -24,5 +24,19 @@ public class Problem3289 {
         return ans;
     }
 
-    //
+    //2nd approach
+    public static int[] getSneakyNumbers(int[] arr){
+        int[] ans = new int[2];
+        int count = 0 ;
+        for (int i = 0; i < arr.length ; i++) {
+            for (int j = i+1; j < arr.length ; j++) {
+                if(arr[i] == arr[j]){
+                    ans[count++] = arr[j];
+                    break;
+                }
+            }
+        }
+        return ans;
+
+    }
 }
