@@ -12,21 +12,26 @@ public class Problem227 {
     public static int calculate(String s) {
         Stack<Integer> number = new Stack<>();
         Stack<Character> symbol = new Stack<>();
+        String check = s.trim();
 
 
         int i = 0;
         String sh = "";
-        while(i<s.length()){
-            if(s.charAt(i) == '+' || s.charAt(i) == '-'
-                || s.charAt(i) == '*' || s.charAt(i) =='/'){
+        while(i<check.length()){
+            if(check.charAt(i) == '+' || check.charAt(i) == '-'
+                || check.charAt(i) == '*' || check.charAt(i) =='/'){
                 symbol.push(s.charAt(i));
                 number.push(Integer.parseInt(sh));
                 sh = "";
+                i++;
             }
+
             else{
-                sh += s.charAt(i);
+                sh += check.charAt(i);
+                i++;
             }
         }
+
 
 
         // now perform the operation
