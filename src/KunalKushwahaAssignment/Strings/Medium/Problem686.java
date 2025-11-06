@@ -7,26 +7,38 @@ public class Problem686 {
 //        String a = "abcd";
 //        String b = "cdabcdab";
 //        System.out.println(repeatedStringMatch(a,b));
-        Scanner input = new Scanner(System.in);
-        int number = input.nextInt();
-        System.out.println(number);
-        float n = input.nextFloat();
-        System.out.println(n);
-
-        String name = input.nextLine();
-        System.out.println(name);
+//        Scanner input = new Scanner(System.in);
+//        int number = input.nextInt();
+//        System.out.println(number);
+//        float n = input.nextFloat();
+//        System.out.println(n);
+//
+//        String name = input.nextLine();
+//        System.out.println(name);
+        String a = "abcd";
+        String b = "cdabcdab";
+        System.out.println(repeatedStringMatch(a,b));
 
     }
 
     public static int repeatedStringMatch(String a, String b) {
-        int ans = 1;
-        if(!b.contains(a)){
-            return ans;
+        String real = a;
+        int ans =1;
+        if(b.contains(a) && b.length() < a.length()){
+            return 1;
         }
-        while(!a.contains(b)){
-             a+= a;
-             ans++;
+        int i = 0;
+        int end = (int)Math.ceil(b.length() / a.length());
+        while(i<=end+2){
+            if(a.contains(b)){
+                return ans;
+            }
+            else{
+                a += real ;
+                ans++;
+                i++;
+            }
         }
-        return ans;
+        return -1;
     }
 }
