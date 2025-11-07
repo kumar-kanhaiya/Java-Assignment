@@ -12,7 +12,7 @@ public class Problem1513 {
     }
 
     // normal approach without optimization
-    public static int numSub(String s) {
+    public static int numSub1(String s) {
         int end = count1Continue(s);
         int i = 1;
         int ans = 0;
@@ -28,16 +28,13 @@ public class Problem1513 {
         int currentCount = 0;
 
         for (int i = 0; i < s.length() ; i++) {
-            int count = 0;
             if(s.charAt(i) == '1'){
                 currentCount++;
                 maxCount = Math.max(currentCount,maxCount);
-
             }
             else{
                 currentCount = 0;
             }
-
         }
         return maxCount;
     }
@@ -69,5 +66,21 @@ public class Problem1513 {
 //        }
 //        return list;
 //    }
+
+    // code is working but time-limit exceed problem occur
+    // its time for optimization
+
+    // approach 2
+    public static int numSub(String s){
+        int result = 0;
+        int count =0;
+        int mod = 1_000_000_007;
+        for (int i = 0; i <s.length() ; i++) {
+            count = s.charAt(i)=='1'? count+1 : 0;
+            result = (result+count) %mod;
+
+        }
+        return result;
+    }
 
 }
