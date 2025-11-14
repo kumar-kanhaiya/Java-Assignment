@@ -3,7 +3,7 @@ package KunalKushwahaAssignment.Strings.Medium;
 public class Problem1750 {
     public static void main(String[] args) {
         String s = "kanhaiya";
-        System.out.println(minimumLength("cabaabac"));
+        System.out.println(minimumLength2("aabccabba"));
 
     }
 
@@ -11,7 +11,7 @@ public class Problem1750 {
         if(s.length() == 1){
             return 1;
         }
-        int ans = 0;
+
 //        StringBuilder builder = new StringBuilder();
         for (int i = 0; i < s.length() ; i++) {
             int start = 0;
@@ -22,11 +22,11 @@ public class Problem1750 {
             }
 
             // checking the starting index
-            while(s.charAt(start) == ch){
+            while(s.charAt(start) == ch && start < s.length()-1){
                 start++;
             }
             // checking the ending index
-            while(s.charAt(end) == ch){
+            while(s.charAt(end) == ch && end > 0){
                 end--;
             }
 
@@ -39,6 +39,29 @@ public class Problem1750 {
         }
 
         return s.length();
+
+    }
+
+    //2ndd approach
+
+    public static int minimumLength2(String s ){
+        int start = 0;
+        int end = s.length() -1 ;
+
+        while(start < end && s.charAt(start) == s.charAt(end)){
+
+            char ch = s.charAt(start);
+
+            while(start <= end && s.charAt(start) == ch){
+                start++;
+            }
+
+            while(start <= end && s.charAt(end) == ch){
+                end--;
+            }
+
+        }
+        return end - start +1;
 
     }
 }
