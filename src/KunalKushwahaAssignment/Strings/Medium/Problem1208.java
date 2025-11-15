@@ -37,4 +37,24 @@ public class Problem1208 {
         }
         return ans;
     }
+
+    // 2nd approach
+    public static int equalSubstring1(String s , String t , int maxCount){
+        int cost = 0;
+        int ans = 0;
+        int i = 0;
+        int j = 0;
+        while(j< s.length()){
+            cost += Math.abs((int)s.charAt(j) - (int)t.charAt(j));
+
+            while(cost > maxCount){
+                cost -= Math.abs(s.charAt(i) - t.charAt(i));
+                i++;
+            }
+
+            ans = Math.max(ans , j-i + 1);
+            j++;
+        }
+        return ans;
+    }
 }
