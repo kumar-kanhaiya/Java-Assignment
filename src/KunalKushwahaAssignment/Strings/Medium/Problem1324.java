@@ -22,28 +22,19 @@ public class Problem1324 {
         int maxLength = maxLengthString(arr);
         int i = 0;
         while(i< maxLength){
-            String check = "";
-            for (int j = 0; j < arr.length ; j++) {
-
-                if(i > arr[j].length()-1){
-                    check += " ";
-
-                }
-                else{
-                    check += arr[j].charAt(i);
-
-
-                }
-                if(j == maxLength && i == arr[j].length()-1){
-                    break;
+            StringBuilder check = new StringBuilder();
+            for (int j = 0; j < arr.length; j++) {
+                if (i >= arr[j].length()) {
+                    check.append(' ');
+                } else {
+                    check.append(arr[j].charAt(i));
                 }
             }
             int end = check.length() -1;
             while(end >= 0 && check.charAt(end) == ' '){
                 end--;
             }
-            check = check.substring(0,end+1);
-            ans.add(check);
+            ans.add(check.substring(0, end + 1));
             i++;
 
         }

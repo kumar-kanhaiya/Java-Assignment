@@ -1,11 +1,12 @@
 package KunalKushwahaAssignment.Others;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class Problem2154 {
     public static void main(String[] args) {
         int[] arr = {5,3,6,1,12};
-        System.out.println(findFinalValue(arr,3));
+        System.out.println(findFinalValue1(arr,3));
 
     }
     public static int findFinalValue(int[] nums, int original) {
@@ -40,5 +41,19 @@ public class Problem2154 {
             }
         }
         return false;
+    }
+
+    // approach 2  optimise solution
+    public static int findFinalValue1(int[] nums, int original){
+        HashSet<Integer> set = new HashSet<>();
+        for(int num :nums){
+            set.add(num);
+        }
+
+//        int ans = original;
+        while(set.contains(original)){
+            original = original*2;
+        }
+        return original;
     }
 }
