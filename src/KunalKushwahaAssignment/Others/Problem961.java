@@ -9,6 +9,7 @@ public class Problem961 {
 
     }
 
+    // first approach
     public static int repeatedNTimes(int[] nums) {
         Arrays.sort(nums);
 
@@ -31,5 +32,14 @@ public class Problem961 {
         return -1;
     }
 
-
+    // second approach
+    public static int repeatedNTimes1(int[] nums) {
+        Set<Integer> s = new HashSet<>();
+        for(int i:nums)
+        {
+            if(!s.add(i))
+                return i;
+        }
+        return nums[nums.length-1];
+    }
 }
