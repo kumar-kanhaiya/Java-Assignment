@@ -18,7 +18,7 @@ public class leetcode539 {
 
     }
 
-    public static int findMinDifference(List<String> timePoints) {
+    public static int findMinDifference1(List<String> timePoints) {
 
         ArrayList<String> list = new ArrayList<>(timePoints);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
@@ -45,19 +45,31 @@ public class leetcode539 {
         return second - first;
     }
 
-    public static void sortTheList(List<String> timePoints){
-        for (int i = 0; i < timePoints.size() ; i++) {
-            if(i+1 < timePoints.size()){
-                if(timePoints.get(i).charAt(0) != timePoints.get(i+1).charAt(0) ||
-                timePoints.get(i).charAt(1) != timePoints.get(i+1).charAt(1)){
-                    int first = Integer.parseInt("" + timePoints.get(i).charAt(0) + timePoints.get(i).charAt(1));
-                    int second = Integer.parseInt("" + timePoints.get(i+1).charAt(0) + timePoints.get(i+1).charAt(1));
-                    if(first> second){
-                        String temp = timePoints.get(i);
+    // correct approach
+    public static int findMinDifference(List<String> timePoints){
 
-                    }
-                }
-            }
+        List<String> list = new ArrayList<>(timePoints);
+        int size = list.size();
+        int[] minutes = new int[size];
+
+        for (int i = 0; i <size ; i++) {
+            String current = list.get(i);
+            int hour = Integer.parseInt(current.substring(0,2));
+            int minute = Integer.parseInt(current.substring(3,5));
+            minutes[i] = hour*60 + minute;
         }
+        Arrays.sort(minutes);
+        // now we have to calculate the minimum minutes difference
+        int minDiff = Integer.MAX_VALUE;
+        for (int i = 1; i <size ; i++) {
+            minDiff = Math.min(minDiff , minutes[i] - minutes[i-1]);
+        }
+        //compare the last and first element
+        minDiff = Math.min(
+                minDiff,
+                24*60 + minutes[0] - minutes[size - 1]
+        );
+
+        return minDiff;
     }
 }
