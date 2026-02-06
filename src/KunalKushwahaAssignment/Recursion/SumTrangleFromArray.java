@@ -26,4 +26,30 @@ public class SumTrangleFromArray {
         System.out.println(Arrays.toString(array));
 
     }
+
+    // 2nd approach
+    public static void sumOfTriangleFromArray2(int[] array){
+
+        // Base condition
+        if(array.length < 1){
+            return;
+        }
+
+        int[] temp = new int[array.length-1];
+        helper(temp , array , 0);
+
+        sumOfTriangleFromArray2(temp);
+
+        System.out.println(Arrays.toString(temp));
+
+    }
+
+    public static int[] helper(int[] temp , int[] array , int index){
+        // Base Condition
+        if(index ==  array.length - 1){
+            return temp;
+        }
+        temp[index] = array[index] + array[index+1];
+        return helper(temp , array , index+1);
+    }
 }
