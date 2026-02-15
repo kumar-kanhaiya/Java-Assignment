@@ -1,0 +1,21 @@
+package KunalKushwahaAssignment.Recursion.easy;
+
+public class FibonacciUsingRecursion {
+    static void main() {
+        int n = 4;
+        System.out.println(fib(n));
+
+    }
+
+    public static int fib(int n) {
+        // base condition
+        if( n== 0){
+            return 0;
+        }
+        if(n == 1){
+            return 1;
+        }
+        return fib(n-1) + fib(n-2);
+
+    }
+}

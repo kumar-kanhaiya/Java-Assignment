@@ -1,4 +1,4 @@
-package KunalKushwahaAssignment.Recursion;
+package KunalKushwahaAssignment.Recursion.easy;
 
 public class BinarySearch {
     static void main() {

@@ -1,4 +1,4 @@
-package KunalKushwahaAssignment.Recursion;
+package KunalKushwahaAssignment.Recursion.easy;
 
 import java.util.ArrayList;
 

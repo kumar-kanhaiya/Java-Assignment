@@ -1,4 +1,4 @@
-package KunalKushwahaAssignment.Recursion;
+package KunalKushwahaAssignment.Recursion.easy;
 
 public class FirstUpperCaseLetterInString {
     static void main() {

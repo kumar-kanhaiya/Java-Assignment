@@ -1,4 +1,4 @@
-package KunalKushwahaAssignment.Recursion;
+package KunalKushwahaAssignment.Recursion.easy;
 
 import java.util.Arrays;
 
@@ -7,6 +7,7 @@ public class ReverseString {
         char[] ch = {'p','o','q'};
         reverseString(ch);
         System.out.println(Arrays.toString(ch));
+
 
     }
 
