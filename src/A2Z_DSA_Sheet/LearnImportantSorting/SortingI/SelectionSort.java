@@ -1,4 +1,4 @@
-package A2Z_DSA_Sheet.LearnImportantSorting;
+package A2Z_DSA_Sheet.LearnImportantSorting.SortingI;
 
 import java.util.Arrays;
 
