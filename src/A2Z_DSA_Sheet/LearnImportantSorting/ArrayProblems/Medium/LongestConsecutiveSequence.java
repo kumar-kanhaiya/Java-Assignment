@@ -1,11 +1,12 @@
 package A2Z_DSA_Sheet.LearnImportantSorting.ArrayProblems.Medium;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class LongestConsecutiveSequence {
     static void main(String[] args) {
         int[] arr = {0, 3, 7, 2, 5, 8, 4, 6, 0, 1};
-        System.out.println(longestConsecutive1(arr));
+        System.out.println(longestConsecutive2(arr));
 
     }
     // first approach simple sort the array and count the number consecutive number
@@ -61,6 +62,33 @@ public class LongestConsecutiveSequence {
         }
 
         // Return the length of the longest consecutive sequence
+        return longest;
+    }
+    // optimal approach
+
+    public static int longestConsecutive2(int[] arr){
+        int n = arr.length;
+        if(n==0){
+            return 0;
+        }
+        int longest =1 ;
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < arr.length; i++) {
+            set.add(arr[i]);
+        }
+        for(int i : arr){
+            // if there is no number before i then it is the starting point
+            if(!set.contains(i -1)){
+                int count = 1;
+                int x = i;
+                // checking for the next consecutive numbers
+                while(set.contains(x+1)){
+                    count++;
+                    x = x+1;
+                }
+                longest = Math.max(longest , count);
+            }
+        }
         return longest;
     }
 
