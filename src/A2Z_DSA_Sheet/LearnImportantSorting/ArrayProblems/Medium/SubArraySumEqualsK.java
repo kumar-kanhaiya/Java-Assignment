@@ -1,9 +1,11 @@
 package A2Z_DSA_Sheet.LearnImportantSorting.ArrayProblems.Medium;
 
+import java.util.HashMap;
+
 public class SubArraySumEqualsK {
     static void main(String[] args) {
-        int[] arr = {1,2,3};
-        System.out.println(subarraySum2(arr,3));
+        int[] arr = {1,-1,0};
+        System.out.println(subarraySum2(arr,0));
 
     }
 
@@ -14,7 +16,7 @@ public class SubArraySumEqualsK {
         int sum = arr[0];
         while(left<n && right<n){
             // first condition
-            if(left<= right && sum>k){
+            while(left<= right && sum>k){
                 sum -= arr[left];
                 left++;
             }
@@ -40,25 +42,29 @@ public class SubArraySumEqualsK {
     public static int subarraySum2(int[] arr , int k){
         int ans = 0;
         for (int i = 0; i < arr.length ; i++) {
-            int sum = arr[i];
-            for (int j = i+1; j < arr.length ; j++) {
-
-                sum += arr[j];
+            int sum = 0;
+            for (int j = i; j <arr.length ; j++) {
+                sum+= arr[j];
                 if(sum == k){
                     ans++;
-                    break;
                 }
-                // case for breaking the loop
-                if(sum > k){
-                    break;
-                }
-                // case 2 for breaking the stuff
-
-            }
-            if(i == arr.length-1 && arr[i] == k){
-                ans++;
             }
         }
-        return  ans;
+        return ans;
+    }
+
+    //very optimal approach
+    public int subarraySum3(int[] nums, int k) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+        int count = 0, sum = 0;
+        for(int num: nums){
+            sum+= num;
+
+            count += map.getOrDefault(sum-k, 0);
+            map.merge(sum, 1, Integer::sum);
+        }
+
+        return count;
     }
 }
