@@ -73,4 +73,27 @@ public class LengthOfLongestSubArrayWithZeroSum {
         return maxLen;
     }
 
+    // some more optimal approach
+    public static int longestSubArray4(int[] arr){
+        int maxLen = 0;
+        int sum = 0;
+        HashMap<Integer , Integer> map = new HashMap<>();
+        for (int i = 0; i < arr.length ; i++) {
+            sum += arr[i];
+            // check if the sum is equal to zero or not
+            if(sum == 0){
+                maxLen = i+1;
+            }
+            else{
+                // check the subarray is present previous or not
+                if(map.containsKey(sum)){
+                    maxLen = Math.max(maxLen , i- map.get(sum));
+                }
+                else{
+                    map.put(sum,i);
+                }
+            }
+        }
+        return maxLen;
+    }
 }
