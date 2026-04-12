@@ -6,8 +6,8 @@ import java.util.List;
 
 public class FourSum {
     static void main(String[] args) {
-        int[] arr = {2,2,2,2,2};
-        System.out.println(fourSum(arr,8));
+        int[] arr = {-1,0,-5,-2,-2,-4,0,1,-2};
+        System.out.println(fourSum(arr,-9));
 
     }
 
@@ -16,13 +16,13 @@ public class FourSum {
         Arrays.sort(arr);
         List<List<Integer>> ans = new ArrayList<>();
         // first loop
-        for (int i = 0; i < arr.length ; i++) {
+        for (int i = 0; i < arr.length -3; i++) {
             // condition check
             if(i>0 && arr[i] == arr[i-1]){
                 continue;
             }
             // second loop
-            for (int j = i+1; j <arr.length ; j++) {
+            for (int j = i+1; j <arr.length -2; j++) {
                 if(j > i+1 && arr[j] == arr[j-1]){
                     continue;
                 }
@@ -31,7 +31,7 @@ public class FourSum {
                 int right = arr.length-1;
                 while(left< right){
                     // first check the sum
-                    int finalSum = sum + arr[left] + arr[right];
+                    long finalSum = (long) arr[i] + arr[j] + arr[left] + arr[right];
                     // check the conditions
                     if(finalSum > target){
                         right--;
@@ -45,12 +45,12 @@ public class FourSum {
                         List<Integer> check = Arrays.asList(arr[i],arr[j],arr[left] , arr[right]);
                         left++;
                         right--;
-                        // check the case of multiple things
-                        while(left<arr.length && arr[left] == arr[left - 1] ){
+//                         check the case of multiple things
+                        while(left < right && arr[left] == arr[left - 1]){
                             left++;
                         }
                         // check the right one
-                        while(right>0 && arr[right-1] == arr[right]){
+                        while(left < right && arr[right] == arr[right + 1]){
                             right--;
                         }
                         ans.add(check);
